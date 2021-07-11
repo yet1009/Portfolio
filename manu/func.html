@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <title>func</title>
+  <meta charset="utf-8"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+
+		*{margin:0; padding:0;}
+		body{margin:0; padding:0;}
+
+		#wrap{max-width:1920px; width:100%; margin:0 auto;}
+
+		#content{width:100%; position:relative; height:700px; margin:0 auto; overflow:hidden;}
+
+		#box{width:450px; height:20px; background-color:rgba(255, 255,0,0.5);position:absolute; left:-450px; top:150px; text-align:center;  color:#fff; line-height:250px; animation:myani 1 1s 1.5s; background-image:url("img/manulogo.png"); background-size:0; background-position:center; background-repeat:no-repeat;}
+		#box1{width:450px; height:20px; background-color:rgba(0,0,0,1);position:absolute; left:-900px; top:150px; text-align:center;  color:#fff; line-height:250px; font-size:0;animation:myani1 1 1s 2s;}
+		#box1  span{background-image:-webkit-linear-gradient(right, #cc0, #e00);  -webkit-background-clip:text; color:transparent;}
+		
+		@keyframes myani{
+			0%{transform:rotatex(0deg);}
+			100%{transform:rotatex(360deg);}
+		}
+		
+		@keyframes myani1{
+			0%{transform:rotatex(0deg);}
+			100%{transform:rotatex(360deg);}
+		}
+
+		
+  </style>
+  <script>
+		$(function(){
+			
+			$("#box").animate({"left":"100px"}, 1000, "linear",function(){
+				$(this).animate({"height":"250px","fontSize":"30px","backgroundSize":"50%"},500, "linear");
+			});
+
+			$("#box1").animate({"left":"550px"}, 1000, "linear",function(){
+				$(this).animate({"height":"250px","fontSize":"30px"},500, "linear");
+			});
+		});
+  </script>
+ </head>
+ <body>
+		<div id="wrap">
+			<div id="content">
+				<div id="box">
+				</div>
+				<div id="box1">
+					<span>MANCHESTER UNITED</span>
+				</div>
+			</div>
+		</div>
+ </body>
+</html>

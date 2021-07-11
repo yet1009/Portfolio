@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang = "ko" xml:lang="ko">
+ <head>
+  <title>login</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;}
+		body{margin:0; padding:0;}
+		section,footer{display:block;}
+		li{list-style:none;}
+		img{border:none;}
+		a:link,a:visited{text-decoration:none; color:#333;}
+		a:hover,a:focus{text-decoration:none; outline:none;}
+		video{border:none;}
+
+		
+		
+		#wrap{min-width:1025px; max-width:1920px; width:100%; margin:0 auto;}
+		#content{width:100%;}
+		
+		#signIn{width:100%; height:935px; background-image:url("img/logbg0.jpg"); background-size:100%; background-position:center; background-repeat:no-repeat;}
+		
+		#login{width:50%; height:100%; float:left;}
+		.log{width:600px; height:800px; background-color:#fff; position:relative; left:50%; top:50%; margin-left:-300px; margin-top:-400px; opacity:0.85;}
+		.log .manutd{width:100%; height:80px; background-color:red; opacity:1;}
+		.manutd h1{width:420px; height:80px;  text-align:right; font-size:28px; line-height:80px; float:left;}
+		.manutd h1 a{display:block; width:420px; height:100%; color:#fff;}
+
+		.manutd .manulogo{width:175px; height:80px; padding-left:5px; float:left;}
+		.manutd .manulogo a{display:block; width:50px; height:50px; padding-top:15px; }
+		.manutd .manulogo a img{width:100%;}
+
+		.text_grad{width:100%; height:120px; text-align:center; line-height:120px; font-size:32px; font-weight:900; }
+		.text_grad span{ background-image:-webkit-linear-gradient(right, #cc0, #e00);  -webkit-background-clip:text; color:transparent;}
+		.subheading{display:block; width:100%; height:40px; text-align:center; font-weight:100; }
+
+		.socialLog{width:100%; height:50px;}
+		.socialLog li{width:280px; height:100%; margin:0 10px; border-bottom:1px solid #ddd; transition:all 1.3s linear;float:left;}
+		.socialLog li a{display:block; width:260px; height:50px; padding:0 10px; transition:all 1.1s linear; }
+		.socialLog li i{display:block; width:110px; height:40px; text-align:right; padding-top:10px;float:left;}
+		.socialLog li img{width:25%;}
+		.socialLog li span{display:block; width:140px; height:100%; padding-left:10px; line-height:50px; font-weight:800; float:left;}
+
+		.sns:hover,.sns a:focus{background-color:#3b5998;}
+		.sns:hover span, .sns a:focus{color:#fff;}
+		.sns1:hover,.sns1 a:focus{background-color:#4285f4; color:#fff;}
+		.sns1:hover span, .sns1 a:focus{color:#fff;}
+		
+		.ent{display:block; width:100%; height:60px; text-align:center; line-height:90px;}
+
+		#logForm{width:498px; height:350px;padding:20px 50px 10px;}
+		fieldset{border:none; width:100%; height:100px;}
+		fieldset legend{font-weight:bold; width:100%; height:25px;}
+		#logForm input{width:498px; height:40px; text-indent:10px; border:1px solid #333; outline:none;}
+		label[for="email"],label[for="userpw"]{display:none;}
+
+		fieldset:first-child p{width:100%; height:20px; margin-top:5px; font-size:13px; background-color:#f4cccc; color:#000; border-radius:10px; text-indent:13px; font-weight:300; line-height:20px;}
+		fieldset:last-child{width:100%; height:50px;}
+		#logForm a button{display:block; width:100%; height:50px;}
+		#logForm button{width:100%; height:50px; cursor:pointer; border:none;border-radius:5px; font-size:18px; color:#fff; background-color:#c70101; outline:none;}
+
+		#logForm a:hover button, #logForm a:focus button{background-color:#fff; border:2px solid #c70101; color:#333;}
+
+		.keepLog{width:100%; height:30px;}
+		/*#logForm .keepLog input{width:50%; height:30px;float:left;}*/
+		#logForm .keepLog input[type="checkbox"]{display:block; width:30px; height:30px; float:right;}
+		#logForm .keepLog label{display:block; width:150px; height:30px; line-height:30px; float:right;}
+				
+
+		.tosignup{width:100%; height:70px;  text-align:center; line-height:70px;}
+		.tosignup a{border-bottom:2px solid #c70101; color:#c70101; font-size:1.2em; font-weight:700; padding-left:2px;}
+
+			
+		/*############### videos #####################*/
+		#videos{width:50%; height:100%; /*background-image:url("img/logframe.jpg"); background-size:100%; background-position:center; background-repeat:no-repeat;*/ float:left; }
+		
+		#videos p{width:600px; height:400px; position:relative; left:50%; top:50%; margin-left:-300px; margin-top:-200px; opacity:1; }
+		#videos p video{width:100%; height:100%;}
+
+		
+  </style>
+  <script>
+		$(document).ready(function(){
+			$("fieldset input").click(function(){
+				$(this).css({"border":"1px solid red"});
+			}).blur(function(){
+				$(this).css({"border":"1px solid #333"});	
+			});
+
+			$(".tosignup a").bind("mouseover focus",function(){
+				$(this).css({"backgroundImage":"-webkit-linear-gradient(right, #cc0, #e00)" ,"-webkit-background-clip":"text","color":"transparent"});
+			}).bind("mouseout blur",function(){
+				$(this).css({"color":"#c70101"});
+			});
+		
+		});
+  </script>
+ </head>
+
+ <body>
+		<div id="wrap">
+			<div id="content">
+				<div id="signIn">
+					<div id="login">
+						<div class="log">
+							<div class="manutd">
+								<h1>
+									<a href="#none" title="title">
+									MANCHESTER UNITED
+									</a>
+								</h1>
+								<div class="manulogo">
+									<a href="#none" title="manulogo">
+										<img src="img/manu.png" alt="logo"/>
+									</a>
+								</div>
+							</div>
+							<p class="text_grad">
+								<span>LOGIN</span>
+							</p>
+							<span class="subheading">Continue with:</span>
+							<ul class="socialLog">
+								<li class="sns">
+									<a href="#none" title="facebook">
+										<i><img src="img/fbicon.png" alt="snsicon"/></i>
+										<span>Facebook</span>
+									</a>
+								</li>
+								<li class="sns1">
+									<a href="#none" title="google">
+										<i><img src="img/ggicon.png" alt="snsicon1"/></i>
+										<span>Google</span>
+									</a>
+								</li>
+							</ul>
+							<span class="ent">Enter with your email</span>
+							<form id="logForm" action="#none" method="POST">
+								<fieldset>
+									<legend>Email</legend>
+									<label for="email">email</label><input id="email" type="email" name="email" required="required" placeholder="Please enter a valid email address">
+									<p>Email address field cannot be left blank</p>
+								</fieldset>
+								<fieldset>
+									<legend>Password</legend>
+									<label for="userpw">password</label><input id="userpw" type="password" name="userpw" required="required" maxlength="12" placeholder="Password must be provided"> 
+								</fieldset>
+								<fieldset>
+									<a href="#none" title="login">
+										<button type="submit">LOG IN</button>
+									</a>
+								</fieldset>
+								<p class="keepLog">
+									<input id="chkbox" type="checkbox" name="chkbox" checked/><label for="chkbox">Keep me logged in</label>
+								</p>
+							</form>
+							<p class="tosignup">
+								<span>Still not part of Red Devils?</span><a href="http://yet1009.dothome.co.kr/manu/signup.html" title="signup">Become a member</a>
+							</p>
+						</div>
+					</div>
+					<div id="videos">
+						<p>
+							<video controls autoplay muted loop>
+								<source src="img/eurovideo.mp4" type="video/mp4"></iframe>
+							</video>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+ </body>
+</html>

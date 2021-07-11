@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang = "ko" xml:lang="ko">
+ <head>
+  <title>accordion</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;}
+		body{margin:0; padding:0;}
+		#wrap{min-width:1025px; max-width:1920px; width:100%; margin:0 auto;}
+		#content{width:100%; position:relative;}
+		#screen0{width:100%; height:800px; position:relative; overflow:hidden;}
+		#screen0 img{height:100%;}
+		#screen0 div{width:25%; height:100%; position:absolute; top:0;}
+		.slide0{background-color:pink; left:0;}
+		.slide1{background-color:gold; left:25%;}
+		.slide2{background-color:lime; left:50%;}
+		.slide3{background-color:lightblue; left:75%;}
+		#screen1{position:absolute; left:0; top:0; width:100%; height:800px; z-index:2;}
+		#screen1 div{width:25%; height:100%; float:left;}
+  </style>
+  <script>
+		$(function(){
+			
+
+			$("#screen1 div").mouseover(function(){
+				var i=$(this).attr("class").substring(3);
+
+				$(".slide"+i).siblings().css({"zIndex":"0","width":"25%","transform":"translatex(0)"});
+				$(".slide"+i).css({"zIndex":"1"});
+				$(".slide"+i).animate({"width":"150%"},500,"linear");
+
+				if (i==1)
+				{
+					$(".slide"+i).css({"transform":"translatex(-25%)"});
+					//$(".slide0 img").hide();
+					//$("#screen0 img").css({"width":"125%"});
+
+				}
+				else if (i==2)
+				{
+					$(".slide"+i).css({"transform":"translatex(-50%)"});
+				}
+				else if (i==3)
+				{
+					$(".slide"+i).css({"transform":"translatex(-75%)"});
+				}
+			});
+			$("#screen1").mouseout(function(){
+				$("#screen0 div").css({"width":"25%","transform":"translatex(0)"});
+			});
+		});
+
+  </script>
+ </head>
+
+ <body>
+		<div id="wrap">
+			<div id="content">
+				<div id="screen0">
+					<div class="slide0">
+					</div>
+					<div class="slide1">
+					</div>
+					<div class="slide2">					
+					</div>
+					<div class="slide3">
+					</div>
+				</div>
+				<div id="screen1">
+					<div class="con0">
+					</div>
+					<div class="con1">
+					</div>
+					<div class="con2">
+					</div>
+					<div class="con3">
+					</div>
+				</div>
+			</div>
+		</div>
+ </body>
+</html>

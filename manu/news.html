@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <title>news</title>
+  <meta charset="utf-8"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+  <style>
+		*{margin:0; padding:0;}
+		body{margin:0; padding:0;}
+		header, section, aside, footer{display:block;}
+		li{list-style:none;}
+		a:link,a:visited{text-decoration:none; color:#333;}
+		a:hover,a:focus{text-decoration:underline;}
+
+
+		#wrap{min-width:1025px; max-width:1920px; width:100%; margin:0 auto;}
+
+		#headerWrap{width:100%; height:100px;  background-color:#c70101;}
+		
+		/*############ 실제 사용하는 header 영역 ################*/
+			#header{width:1600px; height:100px; margin:0 auto;  position:relative;}
+		
+		/*### logo ###*/
+			#logo{width:80px; height:80px; position:absolute; left:50%; top:0; padding:10px 0;}
+			#logo a{display:block; width:100%; height:100%;}
+			#logo img{width:100%;}
+		
+		/*######## gnb(gnb 전체 사용영역) #######*/
+			#gnb{width:800px; height:100%;}
+
+			.hamburger{width:100px; height:100%; float:left;}
+			.hamburger p{width:70px; height:70px; margin:15px auto; }
+			.hamburger p img{width:100%;}
+
+			.nav{width:700px; height:100%; line-height:100px;  float:left;}
+			.nav li{display:inline; padding:0 40px;}
+			.nav li a span{font-weight:bold; color:#fff; font-size:16px;}
+			
+			.iconbox{width:260px; height:100%; background-color:#c70101; position:absolute; left:1140px; top:0;}	
+			.iconbox p{width:50%; height:100%; float:left;}
+			.iconbox p a{display:block; width:100%; height:100%;  text-align:center; line-height:100px; color:#fff;}
+			.iconbox p img{width:25%; vertical-align:middle;}
+
+			.searchBox{width:100%; height:70px; background-color:rgba(255,255,255,1); position:absolute;  /*top:0px; z-index:9;*/ border-radius:0 0 10px 10px; /*display:none;*/}
+			.searchBox p{width:1100px; height:100%; text-align:right; position:relative; left:400px; top:0;}
+			.searchBox label{font-size:30px; line-height:65px; background-image:-webkit-linear-gradient(right, #cc0, #e00);  -webkit-background-clip:text; color:transparent;}
+			.searchBox input[type="text"]{width:600px; height:40px; border:none; border-bottom:3px solid #ccc; background-color:rgba(255,255,255,0,4);vertical-align:middle; text-indent:10px; font-size:17px; outline:none;}
+			.searchBox input[type="button"]{width:100px; height:40px; border:none; border-radius:10px;  background-color:#ccc;}
+			.searchBox input[type="button"]:hover{background-image:linear-gradient(top, #c70101, gold); 
+					background-image:-webkit-linear-gradient(top,#c70101, gold);}
+			.searchBox img{width:30px;}
+			
+			.spons_logo{width:200px; height:100%;  background-color:#000; /*background-color:#c70101;*/ position:absolute; right:0; top:0;}
+			.spons_logo p{width:50%; height:50px; text-align:center; line-height:60px; float:left;}
+			.spons_logo p img{height:50%; cursor:pointer;}
+				
+			.spons_logo p:first-child{line-height:65px;}
+			.spons_logo p:first-child img{height:65%;}
+		
+		/*################## depthWrap #####################*/
+
+			#depthWrap{width:100%; height:400px; position:absolute; background-image:linear-gradient(top,rgb(154 149 149 / 62%), rgb(35 32 30 / 57%)); 
+					background-image:-webkit-linear-gradient(top,rgb(154 149 149 / 62%), rgb(35 32 30 / 57%)); left:0; top:100px; z-index:10; display:none;}
+			#contentWrap{width:1600px; height:100%; /*background-color:gold;*/ margin:0 auto; position:relative; }
+			#allcont{width:1500px; padding-left:100px; }
+		
+		
+			.contList{width:100%; height:400px;  background-image:url("img/contbg1.jpeg"); background-position:right; background-size:50%; background-repeat:no-repeat;} 
+			.contList li{width:140px; height:60px; text-align:center; line-height:60px; float:left;}
+			.contList li ul li a{color:#fff; font-size:16px; font-weight:500;}
+ 
+			/*.contList{ background-image:url("img/contbg.jpg"); background-position:center; background-size:100%;}*/
+			.contList li ul:hover li{/*background-color:rgba(0,0,0,0.7);*/ background-color:rgba(199,1,1,0.5);}
+			
+			.contList a:hover,.contList a:focus{/*background-image:-webkit-linear-gradient(right, #cc0, #e00);  -webkit-background-clip:text; color:transparent;*/ color:#000;}
+
+		
+
+
+
+
+		/*##############################################################*/
+		#container{width:100%;}
+
+		/*##############  visual ############################################*/
+		#visual{width:100%; height:650px; margin:0 auto; position:relative;}
+		#visual p{width:100%; height:100%; overflow:hidden; position:absolute; left:0; top:0; animation:myani 15s infinite alternate ease-in-out;}
+		#visual img{width:100%;}
+
+		.no1{margin-top:-60px;}
+		/*.no1{margin-top:-60px;}*/
+		.no3{margin-top:-30px;}
+		
+		#visual .pic2{animation-name:myani1;}
+		#visual .pic3{animation-name:myani2; animation-delay:1s;}
+	
+	/*#################### leftn ####################*/
+
+		#news{width:100%;}
+		#section1{width:1440px; height:670px; margin:0 auto; padding:70px 0 50px;}
+		#section1 h2{width:100%; font-size:28px; height:50px; text-indent:10px;}
+		#section1 h2:before{border-left:5px solid #ccc;}
+		.leftn{width:600px; height:620px;  float:left;}
+		.mnews{width:100%; height:100%;}
+		.mnews a{display:block; width:100%; height:100%;}
+		.mnews span{display:block; width:100%; height:400px; overflow:hidden;}
+		.mnews img{width:100%;}
+		.mnews strong{display:block; width:590px; height:120px; padding-top:10px; padding-left:10px;font-size:30px; /*background-color:pink;*/}
+		.mnews em{display:block; width:590px; height:60px; font-style:normal; font-size:16px; padding-left:10px; padding-top:20px; /*background-color:orange;*/}
+		/*.leftn .newsimg{width:100%; height:400px; overflow:hidden;}
+		.leftn .newsimg img{width:100%; margin-top:-50px;}*/
+
+
+	/*################### middlen #################*/
+		
+		.middlen{width:400px; margin:0 10px; height:620px;  float:left;}
+		.middlen li{width:100%;border-bottom:1px solid #eee; overflow:hidden;}
+		.middlen li a{display:block; width:100%; height:100%;}
+		.middlen li span{display:block; width:100%; height:0px; transition:all 0.5s ease-in;}
+		.middlen li strong{display:block; height:70px; line-height:70px; text-indent:5px;}
+		.middlen li i{display:block; font-style:normal; text-align:right; height:20px; font-size:14px;}
+		.middlen li img{width:100%; height:100%;}
+
+		.middlen .bigsect span{height:170px;}
+
+	/*############## rightn #################*/
+		.rightn{width:420px; height:620px; float:left;}
+		.rightn .rightn1{width:100%; height:300px; padding-bottom:20px; position:relative;}
+		.rightn1 .rightn1img{width:100%; height:100%; overflow:hidden;}
+		
+		.rightn a{display:block; width:100%; height:100%;}
+		.rightn img{width:100%; opacity:0.8; transform:scale(1); transition:all 0.5s linear;}
+		.rightn img:hover{opacity:1; transform:scale(1.1);}
+		.rightn .newsdesc{width:100%; height:80px; position:absolute; left:0; bottom:30px;}
+		.rightn .newsdesc strong{width:100%; display:block; height:60px; font-size:21px; text-indent:10px; color:#fff; line-height:60px;}
+		.rightn .newsdesc i{width:99%; display:block; height:20px; font-size:14px; text-align:right; color:#fff; line-height:20px; font-style:normal; padding-right:1%;}
+		
+		.rightn .rightn2{width:100%; height:300px; position:relative;}
+		.rightn2 .newsdesc{bottom:10px;}
+		.rightn2 .rightn2img{width:100%; height:100%; overflow:hidden;}
+
+
+	/*################# adver ###########################*/
+		#adver{width:100%; height:300px; padding:50px 0;  background-color:#efefef;}
+		#adver p{width:970px; height:250px; margin:0 auto;}
+		#adver p img{width:100%;}
+
+	/*############## news_video #############*/
+		#news_video{width:100%;}
+		#section2{width:1440px; height:400px; padding:50px 0 70px; margin:0 auto;}
+		#section2 li{width:460px; height:100%; margin-right:30px; float:left; background-color:pink; }
+		#section2 li p{width:100%; height:100%; overflow:hidden;}
+		#section2 li p a{width:100%; height:100%; display:block; position:relative;}
+		#section2 li .imgframe{width:100%; height:100%; display:block; overflow:hidden;}
+		#section2 li .imgframe img{width:100%;}
+		#section2 li .netitle{display:block; width:98%; height:110px; font-size:26px; font-weight:bold; color:#fff;position:absolute; left:0; bottom:0; padding:30px 0 0 2%; background-image:linear-gradient(to bottom,0,0,0, 0.36) 32%,rgba(0,0,0,0.37) 33%,rgba(0,0,0,0.54) 61%,rgba(0,0,0,0.77) 100%; background-image:-webkit-linear-gradient(to bottom,0,0,0,0.36) 32%,rgba(0,0,0,0.37) 33%,rgba(0,0,0,0.54) 61%,rgba(0,0,0,0.77) 100%;}
+		#section2 .button{display:block; width:52px; height:52px; position:absolute; right:25px; bottom:10px; z-index:10;}
+		#section2 .button img{width:100%; height:100%;}
+
+
+		#section2 li:last-child{margin-right:0;}
+		
+
+		/*############### memorable ###########################*/
+			#memorable{width:100%; padding-bottom:100px;}
+			#section3{width:1440px; height:650px; margin:0 auto; padding:50px 0; /*background-color:gold;*/}
+			#section3 h2{width:100%; height:50px; line-height:50px; text-indent:10px; text-transform:uppercase;}
+
+			.meLeft{width:720px; height:100%; float:left;}
+			.meLeft li{width:340px; height:200px; float:left; margin-right:20px; margin-bottom:20px;}
+			.meLeft li p{width:100%; height:100%;}
+			.meLeft li a{display:block; width:100%; height:100%;}
+			.meLeft li a span{display:block; width:100%; height:145px;}
+			.meLeft li a strong{display:block; width:100%; height:55px; /*background-color:orange;*/ font-size:20px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; font-weight:500; line-height:40px;}
+			.meLeft li a span img{width:100%;}
+
+			.meRight{width:720px; height:100%; float:left;}
+			.meRight ol{width:700px; height:100%; padding-left:20px;/*background-image:url("img/rightvisual.jpg"); background-repeat:no-repeat; background-size:100%;*/}
+			.meRight ol li{width:100%; height:65px; font-size:22px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; text-indent:10px; line-height:65px;}
+			.meRight ol li em{font-style:normal;}
+
+			.meRight ol li:hover{background-color:#db1d24;}
+			.meRight ol li:hover a{color:#fff;}
+		
+
+
+
+				#footerWrap{width:100%;}
+				#footer{width:100%;}
+				#sponsor{width:100%; overflow:hidden;}
+				#sponsor ul{width:3000px; height:110px;  padding-top:20px; background-color:#eee; /*margin:30px auto 0;*/ border-top:1px solid #efefef; }
+				#sponsor li{width:100px; height:100%; margin-right:30px; line-height:130px; float:left;}
+				#sponsor li a img{width:100%;}
+				
+				#footer .footertxt{width:100%; height:50px; background-color:#333;}
+				#footer .footertxt ul{width:1440px; height:100%; line-height:50px; margin:0 auto;}
+				#footer .footertxt ul li{display:inline; padding:0 15px;}
+				.footertxt ul li a{color:#efefef;}
+
+				.linkc{width:100%; background-color:rgba(0,0,0, 0.6);}
+				.linkc ul{width:190px; height:60px; padding-top:20px; margin:0 auto; }
+				.linkc li{width:40px; height:40px; color:#333; border-radius:20px; margin-right:5px;background-color:#aaa; float:left;}
+				.linkc li a{display:block; width:100%;}
+				/*.linkc li img{width:80%; margin-top:3px; margin-left:3px;}
+				.linkc li:hover{background-color:red;}
+				.linkc .sns2 img{width:80%; margin-top:3px; margin-left:4px;}
+				.linkc .sns3 img{width:80%; margin-top:4px; margin-left:4px;}*/
+
+				.linkc .signup{width:90px; height:40px; text-align:center; line-height:40px; background-color:#c70101;}
+				.linkc .signup:hover{background-color:rgba(199,1,1,0.8);}
+				.linkc .signup:hover a{text-decoration:none;}
+				.linkc .signup span{color:#fff;}
+				
+				.linkc .login:last-child{margin-right:0;}
+				.linkc .login{width:90px; height:40px; text-align:center; line-height:40px;}
+				.linkc .login:hover a{color:#fff; text-decoration:none;}
+
+				.copyright{width:100%; height:50px; background-color:#000;}
+				.copyright p{width:100%;  text-align:center; line-height:50px; margin:0 auto; color:#aaa; font-size:14px;}
+
+		
+				#footer:after{content:""; display:block; clear:both;}
+
+
+	/*################## animation part ###############################*/
+		@keyframes myani{
+			0%{opacity:1;}
+			50%{opacity:0;}
+			100%{opacity:0;}
+		}
+		@keyframes myani1{
+			0%{opacity:0;}
+			50%{opacity:1;}
+			100%{opacity:0;}
+		}
+		@keyframes myani2{
+			0%{opacity:0;}
+			50%{opacity:0;}
+			100%{opacity:1;}
+		}
+
+  </style>
+  <script>
+		jQuery(document).ready(function(){
+			
+			var num = 0;
+			var num1 = 0;
+			$(".hamburger").click(function(){
+
+				if(num ==0){
+					$(this).css({"backgroundColor":"#000"});
+					$("#depthWrap").css({"display":"block"});
+
+					num = 1;
+				}else{
+					$(this).css({"backgroundColor":"#c70101"});
+					$("#depthWrap").css({"display":"none"});
+
+					num = 0;
+				}
+			});
+
+			$(".iconbox p a").attr("title","search").click(function(){
+				
+				if(num1==0){
+					$(".searchBox").css({"display":"block","top":"100px","zIndex":"9"});
+					num1= 1;
+				}else{
+					$(".searchBox").css({"display":"none","top":"0px","zIndex":"0"});
+					num1 = 0;
+				}
+					
+				
+			});
+			
+			jQuery(".bigsect").hover(function(){
+	
+				jQuery(".bigsect span").css({"height":"170px"});
+				/*jQuery(".bigsect span").hide(1000, "linear", function(){});*/
+				jQuery(".sub1 span, .sub2 span, .sub3 span, .sub4 span ").css({"height":"0"});
+			});
+			
+			jQuery(".sub1").hover(function(){
+	
+				jQuery(".sub1 span").css({"height":"170px"});
+				jQuery(".bigsect span, .sub3 span, .sub4 span, .sub2 span ").css({"height":"0"});
+			});
+			
+			jQuery(".sub2").hover(function(){
+	
+				jQuery(".sub2 span").css({"height":"170px"});
+				jQuery(".bigsect span, .sub1 span, .sub3 span, .sub4 span ").css({"height":"0"});
+			});
+			
+			jQuery(".sub3").hover(function(){
+	
+				jQuery(".sub3 span").css({"height":"170px"});
+				jQuery(".bigsect span, .sub1 span, .sub2 span, .sub4 span ").css({"height":"0"});
+			});
+			
+			jQuery(".sub4").hover(function(){
+	
+				jQuery(".sub4 span").css({"height":"170px"});
+				jQuery(".bigsect span, .sub1 span, .sub2 span, .sub3 span ").css({"height":"0"});
+			});
+			
+			jQuery(".meRight ol").mouseover(function(){
+				jQuery(".meRight li").stop().siblings().fadeTo(200,"0.5");
+				jQuery(".meRight li").stop().fadeTo(50,1);	
+			});
+		
+		});
+  </script>
+ </head>
+ <body>
+		<div id="wrap">
+			<div id="headerWrap">
+				<div id="header">
+					<h1 id="logo">	
+						<a href="http://yet1009.dothome.co.kr/manu/index.html" title="참고페이지">
+							<img src="img/manulogo.png" alt="logo"/>
+						</a>
+					</h1>
+					<div id="gnb">
+						<div class="hamburger">
+							<p>
+								<img src="img/burgerm.png" alt="menu"/>
+							</p>
+						</div>
+						<ul class="nav">
+							<li>
+								<a href="http://yet1009.dothome.co.kr/manu/news.html"  title="news">
+									<span>NEWS</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://yet1009.dothome.co.kr/manu/players.html" title="players">
+									<span>PLAYERS</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://yet1009.dothome.co.kr/manu/shop.html"title="trophy">
+									<span>SHOP</span> 
+								</a>
+							</li>
+							<li>
+								<a href="http://yet1009.dothome.co.kr/manu/legend.html" title="tickets">
+									<span>LEGENDS</span>
+								</a>
+							</li>
+						</ul>
+					</div>	
+					<div class="iconbox">
+						<p>
+							<a href="#none" title="search">
+								<img src="img/find.png" alt="search"/><span class="text0">Search</span>
+							</a>
+						</p>
+						<p>
+							<a href="http://yet1009.dothome.co.kr/manu/login.html" title="login">
+								<img src="img/logicon.png" alt="login"/><span class="text0">Login</span>
+							</a>
+						</p>
+					</div>
+					<div class="searchBox">
+						<p>
+							<label for="sBox">What are you looking for? </label><input id="sBox" type="text" name="sBox"/> <input type="button" value="SEARCH" title="search"/>
+						</p>
+					</div>
+					<div>
+					<div class="spons_logo">
+						<p class="slogo0">
+							<img src="img/adidas.png" alt="sponsorlogo0"/>
+						</p>
+						<p class="slogo0">
+							<img src="img/chevrolet.png" alt="sponsorlogo1"/>
+						</p>
+						<p class="slogo1">
+							<img src="img/aon.png" alt="sponsorlogo2"/>
+						</p>
+						<p class="slogo1">
+							<img src="img/Kohler.png" alt="sponsorlogo3"/>
+						</p>
+					</div>
+				</div>
+				<div id="depthWrap">
+					<div id="contentWrap">
+						<div id="allcont">
+							<ul class="contList">
+								<li>
+									<ul>
+										<li><a href="#none" title="latest">Latest</a></li>
+										<li><a href="#none" title="First Team">First Team</a></li>
+										<li><a href="#none" title="Club">Club</a></li>
+										<li><a href="#none" title="Breaking News">Breaking News</a></li>
+									</ul>
+								</li>
+								<li>
+									<ul>
+										<li><a href="#none" title="first team">First Team</a></li>
+										<li><a href="#none" title="first team manager">Manager</a></li>
+										<li><a href="#none" title="under_23s">Under-23s</a></li>
+										<li><a href="#none" title="women">Women</a></li>
+									</ul>
+								</li>
+								<li>
+									<ul>
+										<li><a href="#none" title="kits">Kits</a></li>
+										<li><a href="#none" title="training">Training</a></li>
+										<li><a href="#none" title="mens">Mens</a></li>
+										<li><a href="#none" title="womens">Womens</a></li>
+										<li><a href="#none" title="kids">Kids</a></li>
+									</ul>
+								</li>
+								<li>
+									<ul>
+										<li><a href="#none" title="legends">Legends</a></li>
+										<li><a href="#none" title="trophy room">Trophy Room</a></li>
+										<li><a href="#none" title="history by decade">History by Decade</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="container">
+				<div id="visual">
+					<p class="pic1">
+						<img class="no1" src="img/newsbg.jpg" alt="뉴스이미지"/>
+					</p>
+					<p class="pic2">
+						<img class="no2" src="img/newsbg1.jpg" alt="뉴스이미지1"/>
+					</p>
+					<p class="pic3">
+						<img class="no3" src="img/newsbg2.jpg" alt="뉴스이미지2"/>
+					</p>
+				</div>
+				<div id="news">
+					<section id="section1">
+						<h2>Latest News</h2>
+						<div class="leftn">
+							<p class="mnews">
+								<a href="https://www.manutd.com/en/news/detail/soccer-aid-for-unicef-to-return-to-old-trafford-in-september-2020" title="news0">
+									<span><img src="img/news0.jpg" alt="news0"/></span>
+									<strong>Soccer Aid to return to Old Trafford in September 2020</strong>
+									<em>Soccer Aid for Unicef has today announced that the world’s biggest charity football match will take place this September at Old Trafford, the home...</em>
+								</a>
+							</p>
+							<!--<p class="newsdesc">
+								<a href="https://www.manutd.com/en/news/detail/soccer-aid-for-unicef-to-return-to-old-trafford-in-september-2020" title="main1">
+									<strong>Soccer Aid to return to Old Trafford in September 2020</strong>
+									<span> The world's biggest charity football match will take place behind closed doors at Old Trafford.</span>
+								</a>
+							</p>-->
+						</div>
+						<ul class="middlen">
+							<li class="bigsect">
+								<a href="https://www.manutd.com/en/news/detail/brandon-williams-delighted-to-sign-new-man-utd-contract" title="news1">
+									<span>
+										<img src="img/news1.jpg" alt="news1"/>
+									</span>
+									<strong>
+										WILLIAMS excited to sign new reds contract
+									</strong>
+									<i>9h | interview</i>
+								</a>
+							</li>
+							<li class="sub1">
+								<a href="https://www.manutd.com/en/news/detail/brandon-williams-signs-new-man-united-contract" title="news2">
+									<span>
+										<img src="img/news2.jpg" alt="news2"/>
+									</span>
+									<strong>
+										WILLIAMS signs new deal with reds
+									</strong>
+									<i>13h | interview</i>
+								</a>
+							</li>
+							<li class="sub2">
+								<a href="https://www.manutd.com/en/news/detail/brandon-williams-signs-new-man-united-contract" title="news3">
+									<span>
+										<img src="img/news3.jpg" alt="news3"/>
+									</span>
+									<strong>
+										UEFA's rule changes to take effect
+									</strong>
+									<i>18h | news</i>
+								</a>
+							</li>
+							<li class="sub3">	
+								<a href="https://www.manutd.com/en/news/detail/brandon-williams-signs-new-man-united-contract" title="news4">
+									<span>
+										<img src="img/news4.jpg" alt="news4"/>
+									</span>
+									<strong>
+										Reds make changes to Europa League squad
+									</strong>
+									<i>20h | news</i>
+								</a>
+							</li>
+							<li class="sub4">	
+								<a href="https://www.manutd.com/en/news/detail/brandon-williams-signs-new-man-united-contract" title="news5">
+									<span>
+										<img src="img/news5.jpg" alt="news5"/>
+									</span>
+									<strong>
+										Ole gives team news for LASK tie
+									</strong>
+									<i>18h | news</i>
+								</a>
+							</li>
+						</ul>
+						<div class="rightn">
+							<div class="rightn1">
+								<p class="rightn1img">
+									<a href="https://www.manutd.com/en/news" title="gallery">
+										<img src="img/news6.jpg" alt="news6"/>
+									</a>
+								<p>
+								<p class="newsdesc">
+									<strong>
+										30 photos from Tuesday's training
+									</strong>
+									<i>16h | interview</i>
+								</p>
+							</div>
+							<div class="rightn2">
+								<p class="rightn2img">
+									<a href="https://www.manutd.com/en/videos" title="video">
+										<img src="img/news7.jpg" alt="news7"/>
+									</a>
+								<p>
+								<p class="newsdesc">
+									<strong>
+										United Daily: New kit, new contract 
+									</strong>
+									<i>18h | news</i>
+								</p>
+							</div>
+						</div>
+					</section>
+				</div>
+				<div id="adver">
+					<p>
+						<img src="img/advertise.gif" alt="advertisement"/>
+					<p>
+				</div>
+				<div id="news_video">
+					<ul id="section2">
+						<li>
+							<p>
+								<a href="https://www.manutd.com/en/videos/detail/watch-every-mason-greenwood-goal-for-man-utd-this-season" title="video1">	
+									<span class="imgframe"><img src="img/newsthumb.jpg" alt="newsthumb"/></span>
+									<span class="netitle">	
+										Watch all of Greenwood's goals in 2019/20
+									</span>
+									<span class="button">
+										<img src="img/youtube.png" alt="버튼"/>
+									</span>
+								</a>
+							</p>
+						</li>
+						<li>
+							<p>
+								<a href="https://www.manutd.com/en/videos/detail/watch-every-mason-greenwood-goal-for-man-utd-this-season" title="video2">	
+									<span class="imgframe"><img src="img/newsthumb1.jpg" alt="newsthumb1"/></span>
+									<span class="netitle">	
+										Europa preparations 
+									</span>
+									<span class="button">
+										<img src="img/youtube.png" alt="버튼"/>
+									</span>
+								</a>
+							</p>
+						</li>
+						<li>
+							<p>
+								<a href="https://www.manutd.com/en/videos/detail/watch-every-mason-greenwood-goal-for-man-utd-this-season" title="video3">	
+									<span class="imgframe"><img src="img/newsthumb2.jpg" alt="newsthumb2"/></span>
+									<span class="netitle">	
+										Goal of the Day: Martial v Stoke 
+									</span>
+									<span class="button">
+										<img src="img/youtube.png" alt="버튼"/>
+									</span>
+								</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+				<div id="memorable">
+					<section id="section3">
+						<h2>Unforgettable Memory</h2>
+						<ul class="meLeft">
+							<li>
+								<p>
+									<a href="https://www.manutd.com/en/news/detail/ji-sung-park-was-just-as-important-to-man-utd-as-cristiano-ronaldo-says-rooney" title="oldnews0">
+										<span><img src="img/oldnews0.jpg" alt="oldnews0"/></span>
+										<strong>ROONEY: PARK WAS AS IMPORTANT AS RONALDO</strong>
+									</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									<a href="https://www.manutd.com/en/news/detail/when-ryan-giggs-feared-he-might-have-to-leave-man-utd" title="oldnews1">
+										<span><img src="img/oldnews1.jpg" alt="oldnews1"/></span>
+										<strong> When Giggsy felt he might leave United</strong>
+									</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									<a href="https://www.manutd.com/en/news/detail/match-rewind-vote-for-your-favourite-david-beckham-match" title="oldnews2">
+										<span><img src="img/oldnews2.jpg" alt="oldnews2"/></span>
+										<strong>Match Rewind: The best of David Beckham</strong>
+									</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									<a href="https://www.manutd.com/en/news/detail/a-to-z-goal-of-the-day-series-r-is-for-ronaldo" title="oldnews3">
+										<span><img src="img/oldnews3.jpg" alt="oldnews3"/></span>
+										<strong>Goal of the Day: R is for... Ronaldo</strong>
+									</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									<a href="https://www.manutd.com/en/news/detail/gary-neville-treble-tales-manchester-united-1999-success" title="oldnews4">
+										<span><img src="img/oldnews4.jpg" alt="oldnews4"/></span>
+										<strong>Neville: 'We were virtually unstoppable'</strong>
+									</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									<a href="https://www.manutd.com/en/news/detail/match-rewind-vote-for-your-favourite-roy-keane-game" title="oldnews5">
+										<span><img src="img/oldnews5.jpg" alt="oldnews5"/></span>
+										<strong>Match Rewind: Four Keane classics to choose from</strong>
+									</a>
+								</p>
+							</li>
+						</ul>
+						<div class="meRight">
+							<ol>
+								<li class="r_title1">
+									<a href="https://www.manutd.com/en/videos/detail/short-highlights-of-man-utd-2-lask-1" title="newstitle1">
+										<em>Highlights: United 2 LASK 1 </em>
+									</a>
+								</li>
+								<li class="r_title2">
+									<a href="https://www.manutd.com/en/news/detail/talking-points-from-manchester-united-2-lask-1" title="newstitle2">
+										<em>United v LASK: Five talking points from Old Trafford</em>
+									</a>
+								</li>
+								<li class="r_title3">
+									<a href="https://www.manutd.com/en/news/detail/lingard-targets-more-euro-glory" title="newstitle3">
+										<em>LINGARD TARGETS MORE EURO GLORY </em>
+									</a>
+								</li>
+								<li class="r_title4">
+									<a href="https://www.manutd.com/en/news/detail/ole-gunnar-solskjaer-reacts-to-second-leg-victory-over-lask-as-united-reach-last-eight" title="newstitle4">
+										<em>OLE TALKS MENGI AND MARTIAL AFTER LASK WIN </em>
+									</a>
+								</li>
+								<li class="r_title5">
+									<a href="https://www.manutd.com/en/news/detail/ole-wishes-alexis-sanchez-well-as-transfer-set-to-be-announced" title="newstitle5">
+										<em>OLE WISHES ALEXIS WELL AHEAD OF TRANSFER </em>
+									</a>
+								</li>
+								<li class="r_title6">
+									<a href="https://www.manutd.com/en/news/detail/teams-announced-for-man-utd-v-lask-in-europa-league-5-august-2020" title="newstitle6">
+										<em>CONFIRMED: UNITED'S LINE-UP TO FACE LASK</em>
+									</a>
+								</li>
+								<li class="r_title7">
+									<a href="https://www.manutd.com/en/news/detail/10-key-milestones-from-harry-maguire-first-year-at-man-utd" title="newstitle7">
+										<em>10 KEY MOMENTS FROM MAGUIRE'S FIRST YEAR</em>
+									</a>
+								</li>
+								<li class="r_title8">
+									<a href="https://www.manutd.com/en/news/detail/why-united-huge-first-leg-lead-has-few-precedents" title="newstitle8">
+										<em>WHY UNITED ARE FACING AN UNUSUAL SITUATION TONIGHT</em>
+									</a>
+								</li>
+								<li class="r_title9">
+									<a href="https://www.manutd.com/en/news/detail/exclusive-q-and-a-ole-gunnar-solskjaer-on-lask-test-brandon-williams-new-deal-and-europa-league" title="newstitle9">
+										<em>OLE: WE NEED THAT TROPHY-WINNING FEELING </em>
+									</a>
+								</li>
+								<li class="r_title10">
+									<a href="https://www.manutd.com/en/news/detail/united-learn-europa-league-quarter-final-opponents" title="newstitle10">
+										<em>EUROPA LEAGUE: UNITED'S QUARTER-FINAL OPPONENTS CONFIRMED</em>
+									</a>
+								</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+			</div>
+			<div id="footerWrap">
+				<div id="footer">
+					<div id="sponsor">
+						<ul>
+							<li class="sp1">
+								<a href="#none" title="스폰서1">
+									<img src="img/p1.png" alt="스폰서1"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서2">
+									<img src="img/p2.png" alt="스폰서2"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서3">
+									<img src="img/p3.png" alt="스폰서3"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서4">
+									<img src="img/p4.png" alt="스폰서4"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서5">
+									<img src="img/p5.png" alt="스폰서5"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서6">
+									<img src="img/p6.png" alt="스폰서6"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서7">
+									<img src="img/p7.png" alt="스폰서7"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서8">
+									<img src="img/p8.png" alt="스폰서8"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서9">
+									<img src="img/p9.png" alt="스폰서9"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서10">
+									<img src="img/p10.png" alt="스폰서10"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서11">
+									<img src="img/p11.png" alt="스폰서11"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서12">
+									<img src="img/p12.png" alt="스폰서12"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서13">
+									<img src="img/p13.png" alt="스폰서13"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서14">
+									<img src="img/p14.png" alt="스폰서14"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서15">
+									<img src="img/p15.png" alt="스폰서15"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서16">
+									<img src="img/p16.png" alt="스폰서16"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footertxt">
+						<ul>
+							<li>
+								<a href="https://www.manutd.com/official-app?t=y&int_source=muwebsite&int_medium=referral&int_campaign=muwebsite&int_content=180910MUOfficialAppFooterCTA" title="Download the Official App">
+									Download the Official App
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/Help/Accessibility" title="Accessibility">
+									Accessibility
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/help/club-contacts?int_source=manutd.com&int_medium=menu&int_campaign=generic&int_content=more_help_contactus" title="contact us">
+									Contact us
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/Club/Jobs"title="jobncareer">
+									Jobs &amp; Career
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/Help/Privacy-Policy"title="privacy">
+									Privacy
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/help/cookie-policy"title="cookies">
+									Cookies
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/help/website-terms-of-use"title="termsofuse">
+									Terms of Use
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/help/terms-and-conditions-of-sale"title="Terms & Conditions of Sale">
+									Terms & Conditions of Sale
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/help/anti-slavery-statement"title="Anti-slavery">
+									Anti-slavery
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="linkc">
+						<ul>
+							<li class="signup">
+								<a href="#none" title="signin">
+									<span>SIGN IN</span>
+								</a>
+							</li>
+							<li class="login">
+								<a href="#none" title="signin">
+									<span>LOG IN</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="copyright">
+						<p>
+							©2020 YEONTAE YOO (yet1009@hanmail.net) Ltd
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+ </body>
+</html>

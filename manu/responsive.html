@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <title>manchester united</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0"/>
+  <style>
+		*{margin:0;padding:0;}
+		body{margin:0; padding:0;}
+		header, footer, section{display:block;}
+		li{list-style:none;}
+		img{border:none;}
+		a:link,a:visited{text-decoration:none; color:#333;}
+		a:hover, a:focus{text-decoration:underline;}
+		h4{position:absolute; left:-9999px; width:1px; height:1px; line-height:0; overflow:hidden;}
+		#wrap{min-width:320px; max-width:768px; width:100%; margin:0 auto;}
+		
+		#headerWrap{width:100%; }
+		#header{width:320px; margin:0 auto; background-color:#efefef; }
+		#header h1{display:none;}
+		#topbar{width:100%; height:50px; background-color:#222; position:relative;}
+		#topbar div{width:120px; position:absolute; right:0; top:0;}
+		#topbar div p{width:55px; margin-right:5px; float:left;}
+		#topbar div p img{width:100%;}
+		#topbar div .partner1 img{margin-top:5px;}
+		#topbar div .partner2 img{margin-top:10px;}
+		
+		#gnb{width:320px; height:60px; background-color:#c70101;margin:0 auto; position:relative;}
+		.hamburger{width:50px; height:50px;  /*background-color:#c70101;*/ position:absolute; left:0; top:5px; /*border-radius:5px; border:1px solid rgba(100,100,100, 0.5);*/}
+		.hamburger span{text-indent:-9999px; display:block; width:50%; height:2px; margin:10px auto 0; /*box-shadow:0 2px 0 rgba(255, 255, 255, 0.2);*/ background-color:#fff;}
+		.logo{width:50px; height:50px; position:absolute; left:50px; top:3px;}
+		.logo a{display:block; width:100%; height:100%;}
+		.logo a img{width:100%;}
+
+		.icon{width:50px; height:100%; position:absolute; left:270px; top:10px;}
+		.icon a{display:block; width:100%;}
+		.icon a img{width:100%;}
+
+		/*########################################################################*/
+		/*############### container #####################*/
+
+		#container{width:100%; }
+		#visual{width:320px; height:500px; background-color:#efefef; margin:0 auto;}
+		#visual p{width:100%; height:100%;}
+		#visual img{width:100%;}
+
+		/*############### section0 / headnews ################*/
+	
+			#section0{width:100%;}
+			.headnews{width:320px; height:400px; background-color:#efefef; margin:5px auto;}
+			.headnews li{width:100%; height:100%; float:left;}
+			.headnews .newsimgs{width:100%; height:250px; border-radius:10px 10px 0 0; overflow:hidden;}
+			.headnews .newsimgs img{width:100%;}
+			.newsdesc{width:303px; height:83px; padding:10px 5px 5px 10px;  border-bottom:1px solid #ccc;  border-right:1px solid #ccc; border-left:1px solid #ccc;  border-radius:0 0 10px 10px;background-color:#fff;}
+			.newsdesc h3{line-height:30px; font-size:20px;}
+			.newsdesc a{color:#333;}
+			.newsdesc p{text-align:right; color:#999; font-size:13px;}
+			.newsdesc p i{font-style:normal;}
+
+		/*############### section1 / nextgame ##################*/
+			#section1{width:100%;}
+			.pregame{width:320px; height:300px; margin:10px auto 0;}
+			.pregame h3{width:100%; height:50px; color:#bfbfbf; background-color:#333; line-height:50px; text-indent:10px;}
+			.game{width:100%; height:250px; background-color:orange;}
+			.game .league{width:100%; height:50px; background-color:#ccc; text-align:center;}
+			.game .league img{height:100%;}
+			.game .date{width:100%; height:40px; font-size:15px; text-align:center; line-height:40px; font-weight:bold; background-color:#2b2b2b;color:#efefef;}
+			.game .result{width:290px; height:90px; background-color:#2b2b2b; padding:15px; color:#fff;}
+			.game .result li{width:100%; height:50%; font-size:18px; display:inline-block;}
+			.game .result li .team{display:block; width:85%; float:left;/*padding-right:180px;*/}
+			.game .result li .record{display:block; width:15%; float:left; text-align:right;}
+			.game .details{width:100%; height:40px; background-color:#777; text-align:center; line-height:40px; color:#ddd; text-transform:uppercase;}
+
+			/*
+				league 50px
+				date 40px
+				result 90px
+				details 40px
+			*/
+			.nextgame{width:320px; height:240px; margin:10px auto 0;}
+			.nextgame h3{width:100%; height:50px; color:#bfbfbf; background-color:#333; line-height:50px; text-indent:10px;}
+			.nextgame .video{width:100%; /*transition:height 0.5s linear;*/} 
+			video{width:100%;}
+			/*.video iframe{width:100%; height:100%; border:none;}*/
+			/*.nextgame:hover .video{height:250px;}*/
+
+			/*##################section2 ###################*/
+				#section2{width:320px; height:500px; margin:0 auto 5px; position:relative;}
+				#subvisual{width:100%; height:100%; position:relative;}
+				#subvisual p{width:100%; height:100%;}
+				#subvisual p img{width:100%;}
+				#subvisual .opabackground{width:100%; height:500px; background-color:rgba(0,0,0, 0.3); position:absolute; left:0; top:0;}
+
+				#info{width:100%; height:500px; position:absolute; left:0; top:0;}
+				#info .date{width:100%; height:70px; /*background-color:gold;*/ text-align:center; line-height:30px; font-size:18px; padding-top:80px; color:#fff;}
+				#info .team{width:100%; height:350px; text-align:center; /*background-color:pink;*/ }
+				#info .team ul{width:320px; height:85%; padding-top:15%; color:#fff; }
+				.team .home{width:150px; height:100%;float:left;}
+				.team .home img{width:80%;}
+				/*.team .home span{}*/
+				.team .vs{width:20px; height:75%; padding-top:25%; float:left;}
+				.team .away{width:150px; height:100%; float:left;}
+				.team .away img{width:80%;}
+				/*#info .vs{padding:15px 0; font-size:15px; color:#fff;}
+				#info .team .versus{width:100%; font-size:18px; font-weight:700;}
+				
+				#info .team span{line-height:50px;color:#fff;}
+				#info .team img[alt="logo"]{width:110px;}*/
+
+			/*################ section3 ############################*/
+				#section3 {width:100%;}
+				#section3 h2{display:none;}
+				#youtube{width:320px; margin:0 auto;}
+				#youtube .big{width:100%; height:450px;  margin-bottom:5px;}
+				.big p{width:100%; height:350px; overflow:hidden;}
+				.big p img{width:100%;}
+				.youtu_info{width:100%; height:100px; background-color:#1a1a1a; color:#fff;}
+				.youtu_info .but{width:50px; height:80px; padding-top:20px; padding-left:10px;float:left;}
+				.youtu_info .but img{width:100%;}
+				.youtu_info .youtu_title{width:240px; height:80px; padding:10px; float:left;}
+				.youtu_title strong{font-size:18px;} 
+				.youtu_title span{display:block; width:100%; text-align:right; font-size:14px; font-weight:300; line-height:30px;}
+
+				#youtube .sm{width:100%;}
+				.sm li{width:100%; height:150px; overflow:hidden; margin-bottom:5px;}
+				.sm .thumbimg{width:120px; height:100%; float:left;}
+				.sm .thumbimg img{width:100%;}
+
+				.sm .descArea{width:200px; height:100%; background-color:#1a1a1a;  float:left;}
+				.descArea .button{width:190px; height:55px; padding-right:10px; padding-top:5px; text-align:right;}
+				.descArea .button a{display:block; width:40px; height:40px; position:relative; left:150px; top:10px;}
+				.descArea .button img{width:100%;}
+				.descArea .youdesc{width:185px; height:65px; padding:5px 5px 0 10px; color:#fff; font-weight:bold;}
+				.youdesc span{display:block; font-weight:400; font-size:13px; text-align:right; padding-top:15px;}
+				#section3:after{content:""; display:block; clear:both;}
+			
+
+			/*####################### section4 ###################*/
+				#section4{width:100%;}
+				#items{width:320px; height:500px; margin:0 auto 5px; background-color:#1a1a1a;}
+				#items .training{width:300px; height:425px; padding:50px 10px 25px;}
+				h3{color:#fff; width:100%; height:50px;}
+				.products{width:100%; height:300px;}
+				.products li{width:100%; height:100%;}
+				.products p{width:100%; height:300px;}
+				.products img{width:100%;} 
+				.shop{width:100%; height:50px; padding-top:20px;}
+				.shop a{display:block; margin:0 auto; width:100px; height:40px; text-align:center; line-height:40px; background-color:#c70101; color:#fff; font-weight:bold; border-radius:10px;}
+
+			/*###################### section5 ######################*/
+				
+				#section5{width:100%;}
+				#honours{width:320px; height:450px; background-color:#000; margin:0 auto 5px; background-image:url("img/trophy.jpg"); background-position:50% 50%; background-repeat:no-repeat;}
+				#honours h2{width:100%; height:50px; color:#fff; text-align:center; line-height:50px;}
+				.move{width:300px; padding:0 10px; height:375px; overflow:hidden;}
+				.move ul{width:4500px; height:100%;}
+				.move ul li{width:300px; height:375px; margin-right:5px; float:left;}
+				.move li p{width:100%;}
+				.move li p img{width:100%;}
+				/*#section6{width:100%; height:600px;  margin:25px auto; background-image:url("img/trophybg.jpg"); background-position:center; background-repeat:no-repeat; background-size:100%; padding:50px 0;}
+				#trophy{width:1440px; height:100%; overflow:hidden; margin:0 auto;}
+
+				#trophy h2{width:180px; height:500px; padding-top:100px;  padding-left:40px; color:#fff; font-size:35px; float:left;}
+				#trophy .move{width:1200px; height:500px; margin-top:50px; margin-right:40px; overflow:hidden; }
+				#trophy ul{width:4500px; height:100%; background-color:rgba(0,0,0,1); opacity:1; float:left; animation:myani 14s infinite linear;}
+				#trophy ul li{width:300px;  height:400px; padding:50px 0; float:left;}
+				
+				#trophy li p{width:100%;}
+				#trophy li p img{width:100%;}
+
+
+				#trophy li .txtbox{width:300px; height:400px; background-color:#000; opacity:1; position:relative; left:0; top:-400px; text-align:center; transition:opacity 0.6s linear;}
+				#trophy ul li:hover .txtbox{opacity:0.3;}
+
+				#trophy li div span{display:block; width:100%; height:100%; color:#fff; font-size:30px; text-transform:uppercase;}
+				#trophy li div .bot{line-height:700px;}
+				
+				@keyframes myani{
+					0%{transform:translatex(0);}
+					100%{transform:translatex(-4200px);}
+				}*/
+		
+			/*################ footer ##################*/
+				#footerWrap{width:100%;}
+				#footerWrap h2{width:320px; height:30px; margin:0 auto; padding:10px 0; background-color:#ddd; text-align:center; text-transform:uppercase; color:#333;}
+				#footer{width:320px; margin:0 auto;}
+				#partner{width:100%; height:640px; background-color:#ccc;}
+				#partner .p_logo{width:100%; height:100%;}
+				#partner .p_logo li{width:160px; height:80px; background-position:center; background-size:50%; background-repeat:no-repeat; float:left;}
+
+				.sp1{background-image:url("img/p1.png");}
+				.sp2{background-image:url("img/p2.png");}
+				.sp3{background-image:url("img/p3.png");}
+				.sp4{background-image:url("img/p4.png");}
+				.sp5{background-image:url("img/p5.png");}
+				.sp6{background-image:url("img/p6.png");}
+				.sp7{background-image:url("img/p7.png");}
+				.sp8{background-image:url("img/p8.png");}
+				.sp9{background-image:url("img/p9.png");}
+				.sp10{background-image:url("img/p10.png");}
+				.sp11{background-image:url("img/p11.png");}
+				.sp12{background-image:url("img/p12.png");}
+				.sp13{background-image:url("img/p13.png");}
+				.sp14{background-image:url("img/p14.png");}
+				.sp15{background-image:url("img/p15.png");}
+				.sp16{background-image:url("img/p16.png");}
+
+				#partner:after{content:""; display:block; clear:both;}
+				
+				#footerbar{width:100%;}
+				#footerbar li{width:100%; height:50px; border-bottom:1px solid #ccc; background-color:#1a1a1a; text-align:center; line-height:50px;}
+				#footerbar li a{color:#fff;}
+
+				#linkc{width:100%; height:60px;}
+				#linkc li{width:50%; height:100%; background-color:#c70101; outline:1px solid #ccc; text-align:center; line-height:60px; float:left;}
+				#linkc li a{color:#fff; font-size:20px;}
+
+				#linkc li:hover,#linkc li:hover a{background-color:#fff; color:#333;}
+				
+				#copyright{width:100%;}
+				#copyright p{width:100%; height:30px;margin:0 auto; text-align:center; background-color:#1b1b1b; color:#ccc; line-height:30px; font-size:14px;}
+
+				@media all and (min-width:481px) and (max-width:767px){
+					
+		
+					#header{width:450px;}
+					#gnb{width:450px;}
+					.icon{ left:400px;}
+					#visual{width:450px; overflow:hidden; display:none;}
+					#visual:after{content:""; display:block; clear:both;}
+					#section0{width:100%;}
+					.headnews{width:450px;}
+					.headnews .newsimgs{height:250px;}
+					.newsdesc{width:432px; height:135px; }
+					.newsdesc h3{line-height:35px; font-size:25px; height:100px;}
+					.newsdesc p{font-size:14px;}
+					
+					.pregame{width:450px; height:300px;}
+					.game .result{width:420px;}
+					.nextgame{width:450px; height:350px;}
+					
+					#section2{width:450px; height:720px;}
+					#subvisual .opabackground{height:700px;}
+					#info{height:500px;}
+					#info .team{width:450px; }
+					#info .team ul{width:100%;padding-top:30%;}
+					.team .home{width:200px;}
+					.team .vs{width:50px;}
+					.team .away{width:200px; }
+				
+					
+					#youtube{width:450px;}
+					#youtube .big{height:450px;}
+					.youtu_info .youtu_title{width:350px;}
+					.sm .thumbimg{width:200px;}
+		
+					.sm .descArea{width:250px;}
+					.descArea .button{width:230px; padding-right:0px;}
+					.descArea .button a{left:200px;}
+					.descArea .youdesc{width:200px;}
+
+					#items{width:450px; height:600px;}
+					#items .training{width:430px; height:550px; padding:25px 10px;}
+					h3{text-align:center;}
+					.products{ height:450px;}
+					.products li{ height:100%;}
+					.products p{ height:100%;}
+					.products img{width:100%;} 
+					.shop{padding-top:10px;}
+					.shop a{width:120px; height:50px;  line-height:50px; }
+
+					#section5{width:100%;}
+					#honours{width:450px; height:450px;}
+					.move{width:300px; padding:0 75px; height:375px; overflow:hidden;}
+
+					
+					#footerWrap{width:100%;}
+					#footerWrap h2{width:450px;}
+					#footer{width:450px; background-color:#ccc; }
+					#partner{width:340px; height:800px; margin:0 auto;}
+					#partner .p_logo li{width:170px; height:100px; background-size:60%; }
+
+					#footerbar li a{font-size:17px;}
+					#linkc li a{color:#fff; font-size:22px;}
+					#copyright p{height:50px; line-height:50px; font-size:15px;}
+
+				}
+
+
+  </style>
+  <script>
+  </script>
+ </head>
+
+ <body>
+		<div id="wrap">
+			<div id="headerWrap">
+				<header id="header">
+					<h1>Manchester United</h1>
+					<div id="topbar">
+						<div>
+							<p class="partner1">
+								<img src="img/adidas.png" alt="partner1"/>
+							</p>
+							<p class="partner2">
+								<img src="img/chevrolet.png" alt="partner2"/>
+							</p>
+						</div>
+					</div>
+					<nav id="gnb">
+						<p class="hamburger">
+							<span>ㅡ</span>
+							<span>ㅡ</span>
+							<span>ㅡ</span>
+						</p>
+						<div class="logo">
+							<a href="https://www.manutd.com/en" title="manulogo">
+								<img src="img/manulogo.png" title="logo"/>
+							</a>
+						</div>
+						<p class="icon">
+							<a href="#none" title="login">
+								<img src="img/log.png" alt="login"/>
+							</a>
+						</p>
+					</nav>
+				</header>
+			</div>
+			<div id="container">
+				<div id="visual">
+					<p>
+						<img src="img/visualm1.jpg" alt="비주얼"/>
+					</p>
+				</div>
+				<section id="section0">
+					<h4>news</h4>
+					<ul class="headnews">
+						<li>
+							<p class="newsimgs">
+								<a href="#none" title="newsimg0">
+									<img src="img/newsimage0.jpg" alt="newsimg0"/>
+								</a>
+							</p>
+							<div class="newsdesc">
+								<h3><a href="#none" title="readarticle">Exclusive injury update on Greenwood</a></h3>
+								<p>
+									1d <i>|</i> NEWS
+								</p>
+							</div>
+						</li>
+						<!--	<li>
+							<p class="newsimgs">
+								<a href="#none" title="newsimg0">
+									<img src="img/newsimage1.jpg" alt="newsimg0"/>
+								</a>
+							</p>
+							<div class="newsdesc">
+								<h3><a href="#none" title="readarticle">Highlights: United 1 Chelsea 3</a></h3>
+								<p>
+									13d <i>|</i> highlights
+								</p>
+							</div>
+						</li>
+						<li>
+							<p class="newsimgs">
+								<a href="#none" title="newsimg2">
+									<img src="img/newsimage2.jpg" alt="newsimg2"/>
+								</a>
+							</p>
+							<div class="newsdesc">
+								<h3><a href="#none" title="readarticle"> Ole's update on Rojo's situation</a></h3>
+								<p class="box">
+									<a href="#none" title="readarticle">
+										Read article
+									</a>
+								</p>
+							</div>
+						</li>
+						<li class="bignews">
+							<p class="newsimgs">
+								<a href="#none" title="newsimg4">
+									<img src="img/newsimage4.jpg" alt="newsimg4"/>
+								</a>
+							</p>
+							<div class="newsdesc">
+								<h3><a href="#none" title="readarticle">Semi-final focus</a></h3>
+								<span>
+									<a href="#none" title="readarticle">
+										Our new adidas training kit made its debut, as the Reds worked hard on the eve of our Wembley clash with Chelsea
+									</a>
+								</span>
+								<p class="box">
+									<a href="#none" title="readarticle">
+										Read article
+									</a>
+								</p>
+							</div>
+						</li>
+						<li>
+							<p class="newsimgs">
+								<a href="#none" title="newsimg2">
+									<img src="img/newsimage3.jpg" alt="newsimg3"/>
+								</a>
+							</p>
+							<div class="newsdesc">
+								<h3><a href="#none" title="readarticle">Nobody celebrated more than Sir Alex</a></h3>
+								<p class="box">
+									<a href="#none" title="readarticle">
+										Read article
+									</a>
+								</p>
+							</div>
+						</li>-->
+					</ul>
+				</section>
+				<section id="section1">
+					<h4>Game Result</h4>
+					<div class="pregame">
+						<h3>Last Match</h3>
+						<!--<p class="button">
+						</p>-->
+						<div class="game">
+							<p class="league">
+								<img src="img/league.png" alt="프리미어리그"/>
+							</p>
+							<p class="date">
+								Jul 27
+							</p>
+							<ul class="result">
+								<li>
+									<span class="team">MAN UTD</span><span class="record" style="color:red";>2</span>
+								</li>
+								<li>
+									<span class="team">LEICESTER</span><span class="record" style="color:red";>0</span>
+								</li>
+							</ul>
+							<p class="details">
+								<span>details</span>
+							</p>
+						</div>
+					</div>
+					<div class="nextgame">
+						<h3>Next Match</h3>
+						<p class="video">
+							<video controls muted autoplay loop>
+								<source src="img/videoplayback.mp4" type="video/mp4">
+							</video>
+						</p>
+					</div>
+				</section>
+				<section id="section2">
+					<h4>Game Schedule</h4>
+					<div id="subvisual">
+						<p>
+							<img src="img/subvism.jpg" alt="visual0"/>
+						</p>
+						<p class="opabackground">
+						</p>
+					</div>
+					<div id="info">
+						<p class="date">
+							<span>Monday 20 July 2020</span><br/>
+							<span>Kick Off 02:00</span>
+						</p>
+						<div class="team"> 
+							<ul>
+								<li class="home">
+									<span>MAN UTD</span><br/>
+									<p>
+										<img src="img/manu.png" alt="logo"/>
+									</p>
+								</li>
+								<li class="vs">
+									VS
+								</li>
+								<li class="away">
+									<span>CHELSEA</span><br/>
+									<p>
+										<img src="img/chelsea.png" alt="logo"/>
+									</p>
+								</li>
+							</ul>
+						</div>
+					</div>				
+				</section>
+				<section id="section3">
+					<h2>MAN UTD TV</h2>
+					<div id="youtube">
+						<div class="big">
+							<p class="thumb">
+								<img src="img/thumbnail.jpg" alt="thumbnail"/>
+							</p>
+							<div class="youtu_info">
+								<p class="but">
+									<a href="#none" title="watchvideo">
+										<img src="img/youtube.png" alt="watchvideo"/>
+									</a>
+								</p>
+								<p class="youtu_title">
+									<strong>Goal of the Day:<br/> Berbatov v Sunderland</strong><br/>
+									<span>2d <i style="font-style:normal;">l</i> video</span>
+								</p>
+							</div>
+						</div>
+						<ul class="sm">
+							<li>
+								<p class="thumbimg">
+									<img src="img/thumbnail1.jpg" alt="thumbnail1"/>
+								</p>
+								<div class="descArea">
+									<p class="button">
+										<a href="#none" title="watchvideo">
+											<img src="img/youtube.png" alt="watchvideo"/>
+										</a>
+									</p>
+									<p class="youdesc">
+										<strong>Goal of the Day: Follow the FA Cup semi-final</strong>
+										<span>1d <i style="font-style:normal;">l</i> video</span>
+									</p>
+								</div>
+							</li>
+							<li>
+								<p class="thumbimg">
+									<img src="img/thumbnail2.jpg" alt="thumbnail2"/>
+								</p>
+								<div class="descArea">
+									<p class="button">
+										<a href="#none" title="watchvideo">
+											<img src="img/youtube.png" alt="watchvideo"/>
+										</a>
+									</p>
+									<p class="youdesc">
+										<strong>Highlights: United 1 Chelsea 3</strong> 
+										<span>13h <i style="font-style:normal;">l</i> highlights</span>
+									</p>
+								</div>
+							</li>
+							<li>
+								<p class="thumbimg">
+									<img src="img/thumbnail3.jpg" alt="thumbnail3"/>
+								</p>
+								<div class="descArea">
+									<p class="button">
+										<a href="#none" title="watchvideo">
+											<img src="img/youtube.png" alt="watchvideo"/>
+										</a>
+									</p>
+									<p class="youdesc">
+										<strong>All The Angles: Rashford v Palace</strong> 
+										<span>3d <i style="font-style:normal;">l</i> video</span>
+									</p>
+								</div>
+							</li>
+							<li>
+								<p class="thumbimg">
+									<img src="img/thumbnail4.jpg" alt="thumbnail4"/>
+								</p>
+								<div class="descArea">
+									<p class="button">
+										<a href="#none" title="watchvideo">
+											<img src="img/youtube.png" alt="watchvideo"/>
+										</a>
+									</p>
+									<p class="youdesc">
+										<strong>Classic Match: 2016 FA Cup semi-final</strong> 
+										<span>14h <i style="font-style:normal;">l</i> highlights</span>
+									</p>
+								</div>
+							</li>
+							<li>
+								<p class="thumbimg">
+									<img src="img/thumbnail5.jpg" alt="thumbnail5"/>
+								</p>
+								<div class="descArea">
+									<p class="button">
+										<a href="#none" title="watchvideo">
+											<img src="img/youtube.png" alt="watchvideo"/>
+										</a>
+									</p>
+									<p class="youdesc">
+										<strong>Ole reacts to United 1 Chelsea 3 </strong> 
+										<span>1d <i style="font-style:normal;">l</i> interviews</span>
+									</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section id="section4">
+					<h4>Shop</h4>
+					<div id="items">
+						<div class="training">
+							<h3>TRAINING ESSENTIALS</h3>
+							<ul class="products">
+								<li>
+									<p>
+										<a href="https://store.manutd.com/en/manchester-united-training-top-white/p-2302990173691646+z-979-2984577417?_s=bm-FI-PSC-MUFC-Carousel4" title="shop">
+											<img src="img/s0.jpg" alt="product0"/>
+										</a>
+									</p>
+								</li>
+								<!--<li>
+									<p>
+										<a href="#none" title="shop">
+											<img src="img/s1.jpg" alt="product1"/>
+										</a>
+									</p>
+								</li>
+								<li>
+									<p>
+										<a href="#none" title="shop">
+											<img src="img/s2.jpg" alt="product2"/>
+										</a>
+									</p>
+								</li>-->
+							</ul>
+							<p class="shop">
+								<a href="#none" title="shopnow">
+									Shop Now
+								</a>
+							</p>
+						</div>
+					</div>
+				</section>
+				<section id="section5">
+					<h4>The moment of honours</h4>
+					<div id="honours">
+						<h2>UNITED'S HONOURS</h2>
+						<div class="move">
+							<ul>
+								<li>
+									<p>
+										<img src="img/throphy1.jpg" alt="throphy1"/>
+									</p>
+									<div class="txtbox">
+										<span>premier league</span>
+									</div>
+								</li>
+								<li>
+									<p>
+										<img src="img/throphy2.jpg" alt="throphy2"/>
+									</p>
+									<div class="txtbox">
+										<span class="bot">first division</span>
+									</div>
+								</li>
+								<li>
+									<p>
+										<img src="img/throphy3.jpg" alt="throphy3"/>
+									</p>
+									<div class="txtbox">
+										<span>fa cup</span>
+									</div>
+								</li>
+								<li>
+									<p>
+										<img src="img/throphy4.jpg" alt="throphy4"/>
+									</p>
+									<div class="txtbox">
+										<span class="bot">league cup</span>
+									</div>
+								</li>
+								<li>
+									<p>
+										<img src="img/throphy5.jpg" alt="throphy5"/>
+									</p>
+									<div class="txtbox">
+										<span>community shield</span>
+									</div>
+								</li>
+								<li>
+									<p>
+										<img src="img/throphy6.jpg" alt="throphy6"/>
+									</p>
+									<div class="txtbox">
+										<span class="bot">european cup</span>
+									</div>
+								</li>
+								<li>
+									<p>
+										<img src="img/throphy7.jpg" alt="throphy7"/>
+									</p>
+									<div class="txtbox">
+										<span>uefa europa league</span>
+									</div>
+								</li>
+								<li>
+									<p>
+										<img src="img/throphy8.jpg" alt="throphy8"/>
+									</p>
+									<div class="txtbox">
+										<span class="bot">uefa cup winners cup</span>
+									</div>
+								</li>
+								<li>
+									<p>
+										<img src="img/throphy9.jpg" alt="throphy9"/>
+									</p>
+									<div class="txtbox">
+										<span>uefa super cup</span>
+									</div>
+								</li>
+								<li>
+									<p>
+										<img src="img/throphy10.jpg" alt="throphy10"/>
+									</p>
+									<div class="txtbox">
+										<span span class="bot">intercontinental cup</span>
+									</div>
+								</li>
+								<li>
+									<p>
+										<img src="img/throphy11.jpg" alt="throphy11"/>
+									</p>
+									<div class="txtbox">
+										<span>fifa club world cup</span>
+									</div>
+								</li>
+								<li>
+									<p>
+										<img src="img/throphy1.jpg" alt="throphy1"/>
+									</p>
+									<div class="txtbox">
+										<span>premier league</span>
+									</div>
+								</li>
+								<li>
+									<p>
+										<img src="img/throphy2.jpg" alt="throphy2"/>
+									</p>
+									<div class="txtbox">
+										<span class="bot">first division</span>
+									</div>
+								</li>
+								<li>
+									<p>
+										<img src="img/throphy3.jpg" alt="throphy3"/>
+									</p>
+									<div class="txtbox">
+										<span>fa cup</span>
+									</div>
+								</li>
+								<li>
+									<p>
+										<img src="img/throphy4.jpg" alt="throphy4"/>
+									</p>
+									<div class="txtbox">
+										<span class="bot">league cup</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				<section>
+			</div>
+			<div id="footerWrap">
+				<h2>sponsor</h2>
+				<footer id="footer">
+					<div id="partner">
+						<ul class="p_logo">
+							<li class="sp1">
+								<!--<a href="#none" title="스폰서1">
+									<img src="img/p1.png" alt="스폰서1"/>
+								</a>-->
+							</li>
+							<li class="sp2">
+								<!--<a href="#none" title="스폰서2">
+									<img src="img/p2.png" alt="스폰서2"/>
+								</a>-->
+							</li>
+							<li class="sp3">
+								<!--<a href="#none" title="스폰서3">
+									<img src="img/p3.png" alt="스폰서3"/>
+								</a>-->
+							</li>
+							<li class="sp4">
+								<!--<a href="#none" title="스폰서4">
+									<img src="img/p4.png" alt="스폰서4"/>
+								</a>-->
+							</li>
+							<li class="sp5">
+								<!--<a href="#none" title="스폰서5">
+									<img src="img/p5.png" alt="스폰서5"/>
+								</a>-->
+							</li>
+							<li class="sp6">
+								<!--<a href="#none" title="스폰서6">
+									<img src="img/p6.png" alt="스폰서6"/>
+								</a>-->
+							</li>
+							<li class="sp7">
+								<!--<a href="#none" title="스폰서7">
+									<img src="img/p7.png" alt="스폰서7"/>
+								</a>-->
+							</li>
+							<li class="sp8">
+								<!--<a href="#none" title="스폰서8">
+									<img src="img/p8.png" alt="스폰서8"/>
+								</a>-->
+							</li>
+							<li class="sp9">
+								<!--<a href="#none" title="스폰서9">
+									<img src="img/p9.png" alt="스폰서9"/>
+								</a>-->
+							</li>
+							<li class="sp10">
+								<!--<a href="#none" title="스폰서10">
+									<img src="img/p10.png" alt="스폰서10"/>
+								</a>-->
+							</li>
+							<li class="sp11">
+								<!--<a href="#none" title="스폰서11">
+									<img src="img/p11.png" alt="스폰서11"/>
+								</a>-->
+							</li>
+							<li class="sp12">
+								<!--<a href="#none" title="스폰서12">
+									<img src="img/p12.png" alt="스폰서12"/>
+								</a>-->
+							</li>
+							<li class="sp13">
+								<!--<a href="#none" title="스폰서13">
+									<img src="img/p13.png" alt="스폰서13"/>
+								</a>-->
+							</li>
+							<li class="sp14">
+								<!--<a href="#none" title="스폰서14">
+									<img src="img/p14.png" alt="스폰서14"/>
+								</a>-->
+							</li>
+							<li class="sp15">
+								<!--<a href="#none" title="스폰서15">
+									<img src="img/p15.png" alt="스폰서15"/>
+								</a>-->
+							</li>
+							<li class="sp16">
+								<!--<a href="#none" title="스폰서16">
+									<img src="img/p16.png" alt="스폰서16"/>
+								</a>-->
+							</li>
+						</ul>
+					</div>
+					<ul id="footerbar">
+						<li>
+							<a href="https://www.manutd.com/official-app?t=y&int_source=muwebsite&int_medium=referral&int_campaign=muwebsite&int_content=180910MUOfficialAppFooterCTA" title="Download the Official App">
+								Download the Official App
+							</a>
+						</li>
+						<li>
+							<a href="https://www.manutd.com/en/Help/Accessibility" title="Accessibility">
+								Accessibility
+							</a>
+						</li>
+						<li>
+							<a href="https://www.manutd.com/en/help/club-contacts?int_source=manutd.com&int_medium=menu&int_campaign=generic&int_content=more_help_contactus" title="contact us">
+								Contact us
+							</a>
+						</li>
+						<li>
+							<a href="https://www.manutd.com/en/Club/Jobs"title="jobncareer">
+								Jobs &amp; Career
+							</a>
+						</li>
+						<li>
+							<a href="https://www.manutd.com/en/Help/Privacy-Policy"title="privacy">
+								Privacy
+							</a>
+						</li>
+						<li>
+							<a href="https://www.manutd.com/en/help/cookie-policy"title="cookies">
+								Cookies
+							</a>
+						</li>
+						<li>
+							<a href="https://www.manutd.com/en/help/website-terms-of-use"title="termsofuse">
+								Terms of Use
+							</a>
+						</li>
+						<li>
+							<a href="https://www.manutd.com/en/help/terms-and-conditions-of-sale"title="Terms & Conditions of Sale">
+								Terms & Conditions of Sale
+							</a>
+						</li>
+						<li>
+							<a href="https://www.manutd.com/en/help/anti-slavery-statement"title="Anti-slavery">
+								Anti-slavery
+							</a>
+						</li>
+					</ul>
+					<div id="linkc">
+						<!--<ul>
+							<li class="sns1">
+								<a href="#none" title="facebook">
+									<img src="img/facebook.png" alt="facebook"/>
+								</a>
+							</li>
+							<li class="sns2">
+								<a href="#none" title="youtube">
+									<img src="img/youtube1.png" alt="youtube"/>
+								</a>
+							</li>
+							<li class="sns3">
+								<a href="#none" title="instagram">
+									<img src="img/instagram.png" alt="instagram"/>
+								</a>
+							</li>-->
+							<li class="signup">
+								<a href="#none" title="signin">
+									<span>SIGN IN</span>
+								</a>
+							</li>
+							<li class="login">
+								<a href="#none" title="signin">
+									<span>LOG IN</span>
+								</a>
+							</li>
+						</ul>
+					</div>			
+					<div id="copyright">
+						<p>
+							©2020 YEONTAE YOO Ltd
+						</p>
+					</div>
+				</footer>
+			</div>
+		</div>
+ </body>
+</html>

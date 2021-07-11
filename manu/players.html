@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <title>firsteam</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device, initial-scale=1.0, minimum-scale=1.0"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;}
+		body, header, section, footer, nav,dd, dt, div, p{margin:0; padding:0;}
+		header, section, footer, nav{display:block;}
+		a:link,a:visited{text-decoration:none; color:#333;}
+		a:hover,a:focus{text-decoration:underline;}
+		li{list-style-type:none;}
+		img{border:none;} /*익스플로러 구형브라우저에서 img 태그에 테두리가 생김*/
+
+		body{ background-color:#efefef;}
+		/*######################## header ###########################*/
+		#wrap{min-width:1025px; max-width:1920px; width:100%; margin:0 auto;}
+		#headerWrap{width:100%; height:100px;  background-color:#c70101;}
+		
+		/*############ 실제 사용하는 header 영역 ################*/
+			#header{width:1600px; height:100px; margin:0 auto;  position:relative;}
+		
+		/*### logo ###*/
+			#logo{width:80px; height:80px; position:absolute; left:50%; top:0; padding:10px 0;}
+			#logo a{display:block; width:100%; height:100%;}
+			#logo img{width:100%;}
+		
+		/*######## gnb(gnb 전체 사용영역) #######*/
+			#gnb{width:800px; height:100%;}
+
+			.hamburger{width:100px; height:100%; float:left;}
+			.hamburger p{width:70px; height:70px; margin:15px auto; }
+			.hamburger p img{width:100%;}
+
+			.nav{width:700px; height:100%; line-height:100px;  float:left;}
+			.nav li{display:inline; padding:0 40px;}
+			.nav li a span{font-weight:bold; color:#fff; font-size:16px;}
+			
+			.iconbox{width:260px; height:100%; background-color:#c70101; position:absolute; left:1140px; top:0;}	
+			.iconbox p{width:50%; height:100%; float:left;}
+			.iconbox p a{display:block; width:100%; height:100%;  text-align:center; line-height:100px; color:#fff;}
+			.iconbox p img{width:25%; vertical-align:middle;}
+
+			.searchBox{width:100%; height:70px; background-color:rgba(255,255,255,1); position:absolute;  /*top:0px; z-index:9;*/ border-radius:0 0 10px 10px; /*display:none;*/}
+			.searchBox p{width:1100px; height:100%; text-align:right; position:relative; left:400px; top:0;}
+			.searchBox label{font-size:30px; line-height:65px; background-image:-webkit-linear-gradient(right, #cc0, #e00);  -webkit-background-clip:text; color:transparent;}
+			.searchBox input[type="text"]{width:600px; height:40px; border:none; border-bottom:3px solid #ccc; background-color:rgba(255,255,255,0,4);vertical-align:middle; text-indent:10px; font-size:17px; outline:none;}
+			.searchBox input[type="button"]{width:100px; height:40px; border:none; border-radius:10px;  background-color:#ccc;}
+			.searchBox input[type="button"]:hover{background-image:linear-gradient(top, #c70101, gold); 
+					background-image:-webkit-linear-gradient(top,#c70101, gold);}
+			.searchBox img{width:30px;}
+			
+			.spons_logo{width:200px; height:100%;  background-color:#000; /*background-color:#c70101;*/ position:absolute; right:0; top:0;}
+			.spons_logo p{width:50%; height:50px; text-align:center; line-height:60px; float:left;}
+			.spons_logo p img{height:50%; cursor:pointer;}
+				
+			.spons_logo p:first-child{line-height:65px;}
+			.spons_logo p:first-child img{height:65%;}
+		
+		/*################## depthWrap #####################*/
+
+			#depthWrap{width:100%; height:400px; position:absolute; background-image:linear-gradient(top,rgb(154 149 149 / 62%), rgb(35 32 30 / 57%)); 
+					background-image:-webkit-linear-gradient(top,rgb(154 149 149 / 62%), rgb(35 32 30 / 57%)); left:0; top:100px; z-index:10; display:none;}
+			#contentWrap{width:1600px; height:100%; /*background-color:gold;*/ margin:0 auto; position:relative; }
+			#allcont{width:1500px; padding-left:100px; }
+		
+		
+			.contList{width:100%; height:400px;  background-image:url("img/contbg1.jpeg"); background-position:right; background-size:50%; background-repeat:no-repeat;} 
+			.contList li{width:140px; height:60px; text-align:center; line-height:60px; float:left;}
+			.contList li ul li a{color:#fff; font-size:16px; font-weight:500;}
+ 
+			/*.contList{ background-image:url("img/contbg.jpg"); background-position:center; background-size:100%;}*/
+			.contList li ul:hover li{/*background-color:rgba(0,0,0,0.7);*/ background-color:rgba(199,1,1,0.5);}
+			
+			.contList a:hover,.contList a:focus{/*background-image:-webkit-linear-gradient(right, #cc0, #e00);  -webkit-background-clip:text; color:transparent;*/ color:#000;}
+		
+
+		/*############################### content ############################*/
+		#content{min-width:1025px; max-width:1920px; width:100%; margin:0 auto;}
+		#players{width:100%;}
+		#firstteam{width:100%; margin:0 auto;}
+		#firstteam h2{position:absolute; left:-9999px; line-height:0; width:1px; height:1px;  overflow:hidden; font-size:1px;}
+
+		/*##############*/
+		#firstteam dl{width:1440px; margin:0 auto;}
+		#firstteam dl dt{font-size:32px; padding:25px 0 20px; text-indent:10px; color:#333; border-bottom:1px solid #ccc;}
+		#firstteam .goalkeeper dd{width:340px; height:320px; margin:10px; /* border-radius:10px;*/ /*overflow:hidden;*/ position:relative; float:left; transition:box-shadow 1s, transform 0.5s; 
+		transform:translatey(20px);}
+
+		#firstteam .goalkeeper dd:hover{box-shadow:5px 5px 20px rgba(0,0,0,0.5); transform:translatey(0px);}
+
+		#firstteam .beho{width:100%; height:100%;}
+		#firstteam .beho .imgs{width:100%;}
+		#firstteam .beho .imgs img{width:100%;}
+		#firstteam .name{width:100%; height:80px; text-align:center; line-height:80px; font-size:32px; letter-spacing:2px;  font-weight:600; background-color:rgba(0,0,0,0.4); position:absolute; left:0; bottom:5px; border-radius:10px;}
+		#firstteam .name span{color:#fff;}
+		#firstteam .name .long{font-size:24px;}
+
+		#firstteam .info{width:100%; height:320px; background-color:#000; position:absolute; left:0; top:0; opacity:0; transition:opacity 0.7s linear;}
+		.info ul{width:100%; height:100%;}
+		.info ul li{width:100%; height:105px; color:#fff; line-height:50px; text-transform:uppercase; text-align:center;}
+		.info ul li img{width:55px;}
+		.info ul li .desc{font-size:30px;}
+
+		
+		#firstteam dl dd:hover .info{opacity:0.88; cursor:pointer;}
+
+		.goalkeeper:after{content:""; display:block; clear:both;}
+
+		/*####################### DEFENDERS #############################*/
+		#firstteam .defenders dd{width:340px; height:320px; margin:10px; /* border-radius:10px; overflow:hidden;*/ position:relative;  float:left; opacity:0.2; transition:opacity 1s linear;}
+		
+		.defenders:after{content:""; display:block; clear:both;}
+		
+		#firstteam .defenders:hover dd{ opacity:1;}
+		#firstteam .defenders:hover .d1{transition-delay:0.3s;}
+		#firstteam .defenders:hover .d2{transition-delay:0.6s;}
+		#firstteam .defenders:hover .d3{transition-delay:0.9s;}
+		#firstteam .defenders:hover .d4{transition-delay:1.2s;}
+		#firstteam .defenders:hover .d5{transition-delay:1.5s;}
+		#firstteam .defenders:hover .d6{transition-delay:1.8s;}
+		#firstteam .defenders:hover .d7{transition-delay:2.1s;}
+		#firstteam .defenders:hover .d8{transition-delay:2.4s;}
+		#firstteam .defenders:hover .d9{transition-delay:2.7s;}
+		#firstteam .defenders:hover .d10{transition-delay:3s;}
+		#firstteam .defenders:hover .d11{transition-delay:3.3s;}
+		
+
+		/*############ midfielder #######################*/
+
+		#firstteam .midfielder dd{width:340px; height:320px; margin:10px; /* border-radius:10px; overflow:hidden;*/ position:relative; float:left; transform:rotatey(0deg); transition:all 0.5s linear;}
+
+		#firstteam .midfielder dd:hover{transform:rotatey(360deg);}
+
+		.midfielder:after{content:""; display:block; clear:both;}
+		
+
+		/*############ forward ####################*/
+		#firstteam .forward dd{width:340px; height:320px; margin:10px; /* border-radius:10px; overflow:hidden;*/ position:relative; float:left;  opacity:0; transition:opacity .5s linear;}
+
+		#firstteam .forward:hover dd{opacity:1;}
+		#firstteam .forward:hover .c0{transition-delay:0.5s;}
+		#firstteam .forward:hover .c1{transition-delay:1s;}
+		#firstteam .forward:hover .c2{transition-delay:1.5s;}
+		#firstteam .forward:hover .c3{transition-delay:2s;}
+		#firstteam .forward:hover .c4{transition-delay:2.5s;}
+		#firstteam .forward:hover .c5{transition-delay:3s;}
+
+
+		/*################ footer#############################*/
+
+			#footerWrap{width:100%;}
+			#footer{width:100%;}
+			#sponsor{width:100%; overflow:hidden;}
+			#sponsor ul{width:3000px; height:130px;  padding-top:20px; background-color:#fff; margin:30px auto 0; border-top:1px solid #ccc;}
+			#sponsor li{width:100px; height:100%; margin-right:30px; line-height:130px; float:left;}
+			#sponsor li a img{width:100%;}
+			
+			#footer .footertxt{width:100%; height:50px; background-color:#333;}
+			#footer .footertxt ul{width:1440px; height:100%; line-height:50px; margin:0 auto;}
+			#footer .footertxt ul li{display:inline; padding:0 15px;}
+			.footertxt ul li a{color:#efefef;}
+
+			.linkc{width:100%;background-color:rgba(0,0,0, 0.6);}
+			.linkc ul{width:320px; height:60px; padding-top:20px; margin:0 auto; }
+			.linkc li{width:40px; height:40px; color:#333; border-radius:20px; margin-right:5px; background-color:#aaa; float:left;}
+			.linkc li a{display:block; width:100%;}
+			.linkc li img{width:80%; margin-top:3px; margin-left:3px;}
+			.linkc li:hover{background-color:red;}
+			.linkc .sns2 img{width:80%; margin-top:3px; margin-left:4px;}
+			.linkc .sns3 img{width:80%; margin-top:4px; margin-left:4px;}
+
+			.linkc .signup{width:90px; height:40px; text-align:center; line-height:40px; background-color:#c70101;}
+			.linkc .signup:hover{background-color:rgba(199,1,1,0.8);}
+			.linkc .signup:hover a{text-decoration:none;}
+			.linkc .signup span{color:#fff;}
+			
+			.linkc .login:last-child{margin-right:0;}
+			.linkc .login{width:90px; height:40px; text-align:center; line-height:40px;}
+			.linkc .login:hover a{color:#fff; text-decoration:none;}
+
+			.copyright{width:100%; background-color:#000;}
+			.copyright p{width:100%; height:30px;  text-align:center; line-height:30px; margin:0 auto;color:#aaa; font-size:14px;}
+		
+  </style>
+  <script>
+		$(function(){
+
+			var num = 0;
+			var num1 = 0;
+
+			$(".searchBox").hide();
+			$(".hamburger").click(function(){
+
+				if(num ==0){
+					$(this).css({"backgroundColor":"#000"});
+					$("#depthWrap").css({"display":"block"});
+
+					num = 1;
+				}else{
+					$(this).css({"backgroundColor":"#c70101"});
+					$("#depthWrap").css({"display":"none"});
+
+					num = 0;
+				}
+			});
+
+			$(".iconbox p a").attr("title","search").click(function(){
+				
+				if(num1==0){
+					$(".searchBox").css({"display":"block","top":"100px","zIndex":"9"});
+					num1= 1;
+				}else{
+					$(".searchBox").css({"display":"none","top":"0px","zIndex":"0"});
+					num1 = 0;
+				}
+					
+				
+			});
+
+		});
+  </script>
+ </head>
+
+ <body>
+		<div id="wrap">
+			<div id="headerWrap">
+				<div id="header">
+					<h1 id="logo">	
+						<a href="http://yet1009.dothome.co.kr/manu/index.html" title="참고페이지">
+							<img src="img/manulogo.png" alt="logo"/>
+						</a>
+					</h1>
+					<div id="gnb">
+						<div class="hamburger">
+							<p>
+								<img src="img/burgerm.png" alt="menu"/>
+							</p>
+						</div>
+						<ul class="nav">
+							<li>
+								<a href="http://yet1009.dothome.co.kr/manu/news.html"  title="news">
+									<span>NEWS</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://yet1009.dothome.co.kr/manu/players.html" title="players">
+									<span>PLAYERS</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://yet1009.dothome.co.kr/manu/shop.html"title="trophy">
+									<span>SHOP</span> 
+								</a>
+							</li>
+							<li>
+								<a href="http://yet1009.dothome.co.kr/manu/legend.html" title="tickets">
+									<span>LEGENDS</span>
+								</a>
+							</li>
+						</ul>
+					</div>	
+					<div class="iconbox">
+						<p>
+							<a href="#none" title="search">
+								<img src="img/find.png" alt="search"/><span class="text0">Search</span>
+							</a>
+						</p>
+						<p>
+							<a href="http://yet1009.dothome.co.kr/manu/login.html" title="login">
+								<img src="img/logicon.png" alt="login"/><span class="text0">Login</span>
+							</a>
+						</p>
+					</div>
+					<div class="searchBox">
+						<p>
+							<label for="sBox">What are you looking for? </label><input id="sBox" type="text" name="sBox"/> <input type="button" value="SEARCH" title="search"/>
+						</p>
+					</div>
+					<div>
+					<div class="spons_logo">
+						<p class="slogo0">
+							<img src="img/adidas.png" alt="sponsorlogo0"/>
+						</p>
+						<p class="slogo0">
+							<img src="img/chevrolet.png" alt="sponsorlogo1"/>
+						</p>
+						<p class="slogo1">
+							<img src="img/aon.png" alt="sponsorlogo2"/>
+						</p>
+						<p class="slogo1">
+							<img src="img/Kohler.png" alt="sponsorlogo3"/>
+						</p>
+					</div>
+				</div>
+				<div id="depthWrap">
+					<div id="contentWrap">
+						<div id="allcont">
+							<ul class="contList">
+								<li>
+									<ul>
+										<li><a href="#none" title="latest">Latest</a></li>
+										<li><a href="#none" title="First Team">First Team</a></li>
+										<li><a href="#none" title="Club">Club</a></li>
+										<li><a href="#none" title="Breaking News">Breaking News</a></li>
+									</ul>
+								</li>
+								<li>
+									<ul>
+										<li><a href="#none" title="first team">First Team</a></li>
+										<li><a href="#none" title="first team manager">Manager</a></li>
+										<li><a href="#none" title="under_23s">Under-23s</a></li>
+										<li><a href="#none" title="women">Women</a></li>
+									</ul>
+								</li>
+								<li>
+									<ul>
+										<li><a href="#none" title="kits">Kits</a></li>
+										<li><a href="#none" title="training">Training</a></li>
+										<li><a href="#none" title="mens">Mens</a></li>
+										<li><a href="#none" title="womens">Womens</a></li>
+										<li><a href="#none" title="kids">Kids</a></li>
+									</ul>
+								</li>
+								<li>
+									<ul>
+										<li><a href="#none" title="legends">Legends</a></li>
+										<li><a href="#none" title="trophy room">Trophy Room</a></li>
+										<li><a href="#none" title="history by decade">History by Decade</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="content">
+				<div id="players">
+					<section id="firstteam">
+						<h2>FIRST TEAM</h2>
+						<dl class="goalkeeper">
+							<dt>GOALKEEPER</dt>
+							<dd>
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f0.jpg" alt="goalkeeper1"/>
+									</p>
+									<p class="name">
+										<span>DAVID DE GEA</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">goalkeeper</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/spain.svg" alt="스페인국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">7 nov 1990</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd>
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f1.jpg" alt="goalkeeper2"/>
+									</p>
+									<p class="name">
+										<span>LEE GRANT</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">goalkeeper</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/england.svg" alt="영국국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">27 jan 1983</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd>
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f2.jpg" alt="goalkeeper3"/>
+									</p>
+									<p class="name">
+										<span>SERGIO ROMERO</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">goalkeeper</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/argentina.svg" alt="아르헨티나국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">22 feb 1987</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd>
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f3.jpg" alt="goalkeeper4"/>
+									</p>
+									<p class="name">
+										<span>JOEL PEREIRA</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">goalkeeper</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/portugal.svg" alt="포르투갈국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">28 jun 1996</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+						</dl>
+						<dl class="defenders">
+							<dt>DEFENDERS</dt>
+							<dd class="d0">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f4.jpg" alt="deffender1"/>
+									</p>
+									<p class="name">
+										<span>VICTOR LINDELOF</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">defender</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/sweden.svg" alt="스웨덴국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">17 jul 1994</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="d1">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f5.jpg" alt="deffender2"/>
+									</p>
+									<p class="name">
+										<span>ERIC BAILLY</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">defender</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/ivorycoast.svg" alt="ivorycoast국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">12 apr 1994</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="d2">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f6.jpg" alt="deffender3"/>
+									</p>
+									<p class="name">
+										<span>PHIL JONES</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">defender</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/england.svg" alt="영국국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">21 feb 1992</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="d3">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f7.jpg" alt="deffender4"/>
+									</p>
+									<p class="name">
+										<span>HARRY MAGUIRE</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">defender</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/england.svg" alt="영국국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">5 mar 1993</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="d4">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f8.jpg" alt="deffender5"/>
+									</p>
+									<p class="name">
+										<span>CHRIS SMALLING</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">defender</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/england.svg" alt="영국국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">22 nov 1989</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="d5">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f9.jpg" alt="deffender6"/>
+									</p>
+									<p class="name">
+										<span>MARCOS ROJO</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">defender</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/argentina.svg" alt="아르헨티나국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">20 mar 1990</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="d6">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f10.jpg" alt="deffender7"/>
+									</p>
+									<p class="name">
+										<span>DIOGO DALOT<span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">defender</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/portugal.svg" alt="포르투갈국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">18 mar 1999</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="d7">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f11.jpg" alt="deffender8"/>
+									</p>
+									<p class="name">
+										<span>LUKE SHAW<span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">defender</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/england.svg" alt="영국국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">12 jul 1995</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="d8">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f12.jpg" alt="deffender9"/>
+									</p>
+									<p class="name">
+										<span>TIMFOSU-MENSAH<span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">defender</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/netherland.svg" alt="네덜란드국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">02 jan 1998</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="d9">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f13.jpg" alt="deffender10"/>
+									</p>
+									<p class="name">
+										<span class="long">AARONWAN-BISSAKA<span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">defender</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/england.svg" alt="영국국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">26 nov 1997</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="d10">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f14.jpg" alt="deffender11"/>
+									</p>
+									<p class="name">
+										<span>AXEL TUANZEBE<span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">defender</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/england.svg" alt="영국국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">14 nov 1997</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="d11">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/f15.jpg" alt="deffender12"/>
+									</p>
+									<p class="name">
+										<span class="long">BRANDON WILLIAM<span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">defender</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/england.svg" alt="영국국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">3 sep 2000</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+						</dl>
+						<dl class="midfielder">
+							<dt>MIDFIELDERS</dt>
+							<dd>
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/m0.jpg" alt="midfielder1"/>
+									</p>
+									<p class="name">
+										<span>PAUL POGBA</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">midfielder</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/france.svg" alt="프랑스국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">15 mar 1993</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd>
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/m1.jpg" alt="midfielder2"/>
+									</p>
+									<p class="name">
+										<span>JUAN MATA</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">midfielder</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/spain.svg" alt="스페인국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">28 apr 1988</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd>
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/m2.jpg" alt="midfielder3"/>
+									</p>
+									<p class="name">
+										<span>JESSE LINGARD</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">midfielder</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/england.svg" alt="영국국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">15 dec 1992</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd>
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/m3.jpg" alt="midfielder4"/>
+									</p>
+									<p class="name">
+										<span>ANDREAS PEREIRA</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">midfielder</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/brazil.svg" alt="브라질국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">1 jan 1996</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd>
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/m4.jpg" alt="midfielder5"/>
+									</p>
+									<p class="name">
+										<span>FRED</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">midfielder</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/brazil.svg" alt="브라질국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">5 mar 1993</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd>
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/m5.jpg" alt="midfielder6"/>
+									</p>
+									<p class="name">
+										<span class="long">BRUNO FERNANDES</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">midfielder</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/portugal.svg" alt="포르투갈국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">8 sep 1994</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd>
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/m6.jpg" alt="midfielder7"/>
+									</p>
+									<p class="name">
+										<span>DANIEL JAMES</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">midfielder</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/wales.svg" alt="웨일즈국기"/>
+										</li>
+										<li>	
+											<span>date of birth</span><br/>
+											<strong class="desc">10 nov 1997</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd>
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/m7.jpg" alt="midfielder8"/>
+									</p>
+									<p class="name">
+										<span>NEMANJA MATIC</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">midfielder</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/serbia.svg" alt="세르비아국기"/>
+										</li>
+										<li>	
+											<span>date of birth</span><br/>
+											<strong class="desc">1 aug 1988</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd>
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/m8.jpg" alt="midfielder9"/>
+									</p>
+									<p class="name">
+										<span class="long">SCOTT MCTOMINAY</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">midfielder</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/england.svg" alt="영국국기"/>
+										</li>
+										<li>	
+											<span>date of birth</span><br/>
+											<strong class="desc">8 dec 1996</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+						</dl>
+						<dl class="forward">
+							<dt>FORWARD</dt>
+							<dd class="c0">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/m9.jpg" alt="forward1"/>
+									</p>
+									<p class="name">
+										<span>ALEXIS SANCHEZ</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">forward</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/chile.svg" alt="칠레국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">19 dec 1988</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="c1">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/m10.jpg" alt="forward2"/>
+									</p>
+									<p class="name">
+										<span>MARTIAL</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">forward</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/france.svg" alt="프랑스국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">5 dec 1995</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="c2">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/m11.jpg" alt="forward3"/>
+									</p>
+									<p class="name">
+										<span class="long">MARCUS RASHFORD</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">forward</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/england.svg" alt="영국국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">31 oct 1997</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="c3">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/m12.jpg" alt="forward4"/>
+									</p>
+									<p class="name">
+										<span>ODION IGHALO</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">forward</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/nigeria.svg" alt="나이지리아국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">16 jun 1989</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="c4">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/m13.jpg" alt="forward5"/>
+									</p>
+									<p class="name">
+										<span class="long">MASON GREENWOOD</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">forward</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/england.svg" alt="영국국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">1 oct 2001</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+							<dd class="c5">
+								<div class="beho">
+									<p class="imgs">
+										<img src="img/m14.jpg" alt="forward6"/>
+									</p>
+									<p class="name">
+										<span>TAHITH CHONG</span>
+									</p>
+								</div>
+								<div class="info">
+									<ul>
+										<li>
+											<span>position</span><br/>
+											<strong class="desc">forward</strong>
+										</li>
+										<li>
+											<span>country</span><br/>
+											<img src="img/netherland.svg" alt="네덜란드국기"/>
+										</li>
+										<li>
+											<span>date of birth</span><br/>
+											<strong class="desc">4 dec 1999</strong>
+										</li>
+									</ul>
+								</div>
+							</dd>
+						</dl>
+					</section>
+				</div>
+			</div>
+			<div id="footerWrap">
+					<div id="footer">
+						<div id="sponsor">
+							<ul>
+								<li class="sp1">
+									<a href="#none" title="스폰서1">
+										<img src="img/p1.png" alt="스폰서1"/>
+									</a>
+								</li>
+								<li>
+									<a href="#none" title="스폰서2">
+										<img src="img/p2.png" alt="스폰서2"/>
+									</a>
+								</li>
+								<li>
+									<a href="#none" title="스폰서3">
+										<img src="img/p3.png" alt="스폰서3"/>
+									</a>
+								</li>
+								<li>
+									<a href="#none" title="스폰서4">
+										<img src="img/p4.png" alt="스폰서4"/>
+									</a>
+								</li>
+								<li>
+									<a href="#none" title="스폰서5">
+										<img src="img/p5.png" alt="스폰서5"/>
+									</a>
+								</li>
+								<li>
+									<a href="#none" title="스폰서6">
+										<img src="img/p6.png" alt="스폰서6"/>
+									</a>
+								</li>
+								<li>
+									<a href="#none" title="스폰서7">
+										<img src="img/p7.png" alt="스폰서7"/>
+									</a>
+								</li>
+								<li>
+									<a href="#none" title="스폰서8">
+										<img src="img/p8.png" alt="스폰서8"/>
+									</a>
+								</li>
+								<li>
+									<a href="#none" title="스폰서9">
+										<img src="img/p9.png" alt="스폰서9"/>
+									</a>
+								</li>
+								<li>
+									<a href="#none" title="스폰서10">
+										<img src="img/p10.png" alt="스폰서10"/>
+									</a>
+								</li>
+								<li>
+									<a href="#none" title="스폰서11">
+										<img src="img/p11.png" alt="스폰서11"/>
+									</a>
+								</li>
+								<li>
+									<a href="#none" title="스폰서12">
+										<img src="img/p12.png" alt="스폰서12"/>
+									</a>
+								</li>
+								<li>
+									<a href="#none" title="스폰서13">
+										<img src="img/p13.png" alt="스폰서13"/>
+									</a>
+								</li>
+								<li>
+									<a href="#none" title="스폰서14">
+										<img src="img/p14.png" alt="스폰서14"/>
+									</a>
+								</li>
+								<li>
+									<a href="#none" title="스폰서15">
+										<img src="img/p15.png" alt="스폰서15"/>
+									</a>
+								</li>
+								<li>
+									<a href="#none" title="스폰서16">
+										<img src="img/p16.png" alt="스폰서16"/>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="footertxt">
+							<ul>
+								<li>
+									<a href="https://www.manutd.com/official-app?t=y&int_source=muwebsite&int_medium=referral&int_campaign=muwebsite&int_content=180910MUOfficialAppFooterCTA" title="Download the Official App">
+										Download the Official App
+									</a>
+								</li>
+								<li>
+									<a href="https://www.manutd.com/en/Help/Accessibility" title="Accessibility">
+										Accessibility
+									</a>
+								</li>
+								<li>
+									<a href="https://www.manutd.com/en/help/club-contacts?int_source=manutd.com&int_medium=menu&int_campaign=generic&int_content=more_help_contactus" title="contact us">
+										Contact us
+									</a>
+								</li>
+								<li>
+									<a href="https://www.manutd.com/en/Club/Jobs"title="jobncareer">
+										Jobs &amp; Career
+									</a>
+								</li>
+								<li>
+									<a href="https://www.manutd.com/en/Help/Privacy-Policy"title="privacy">
+										Privacy
+									</a>
+								</li>
+								<li>
+									<a href="https://www.manutd.com/en/help/cookie-policy"title="cookies">
+										Cookies
+									</a>
+								</li>
+								<li>
+									<a href="https://www.manutd.com/en/help/website-terms-of-use"title="termsofuse">
+										Terms of Use
+									</a>
+								</li>
+								<li>
+									<a href="https://www.manutd.com/en/help/terms-and-conditions-of-sale"title="Terms & Conditions of Sale">
+										Terms & Conditions of Sale
+									</a>
+								</li>
+								<li>
+									<a href="https://www.manutd.com/en/help/anti-slavery-statement"title="Anti-slavery">
+										Anti-slavery
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="linkc">
+							<ul>
+								<li class="sns1">
+									<a href="#none" title="facebook">
+										<img src="img/facebook.png" alt="facebook"/>
+									</a>
+								</li>
+								<li class="sns2">
+									<a href="#none" title="youtube">
+										<img src="img/youtube1.png" alt="youtube"/>
+									</a>
+								</li>
+								<li class="sns3">
+									<a href="#none" title="instagram">
+										<img src="img/instagram.png" alt="instagram"/>
+									</a>
+								</li>
+								<li class="signup">
+									<a href="#none" title="signin">
+										<span>SIGN IN</span>
+									</a>
+								</li>
+								<li class="login">
+									<a href="#none" title="signin">
+										<span>LOG IN</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="copyright">
+							<p>
+								©2020 YEONTAE YOO (yet1009@hanmail.net) Ltd
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+ </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang = "ko" xml:lang="ko">
+ <head>
+  <title>section2_revised(visual)</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;}
+		body{margin:0; padding:0;}
+		section,footer{display:block;}
+		li{list-style:none;}
+		img{border:none;}
+		a:link,a:visited{text-decoration:none; color:#333;}
+		a:hover,a:focus{text-decoration:none; outline:none;}
+		video{border:none;}
+
+		
+		
+		#wrap{min-width:1025px; max-width:1920px; width:100%; margin:0 auto;}
+		
+		#container{width:100%;}
+
+		#section2{width:100%; padding-top:50px; position:relative;}
+		#subvisual{width:100%; height:800px; position:relative; background-image:url("img/subvisual3.jpg"); background-position:bottom; background-size:100%; background-repeat:no-repeat;}
+		#subvisual .opabackground{width:100%; height:800px; background-color:rgba(0,0,0, 0.3); position:absolute; left:0; top:0;}
+	
+		#info{width:900px; height:450px; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); /*background-color:blue;*/}
+		
+		#info .cen{width:200px; height:150px; /*background-color:gold;*/ position:absolute; left:50%; margin-left:-100px; top:40%; z-index:3;}	
+		
+		#info .schedule{width:100%; height:60px; color:#fff;  font-weight:800; text-align:center; font-size:18px;}
+	
+		#info .lefttime{width:160px; height:40px; padding:10px; margin:0 auto; border:1px solid #494a50;}
+		#info .lefttime .tagh{width:42px; padding-right:8px; float:left;}
+		#info .lefttime .tagh img{width:100%;}
+		#info .lefttime .time{width:110px; height:40px; background-color:#4b4c52; float:left;}
+		
+
+		.team{width:100%; height:308px; padding:150px 0 0;}
+		.team li{width:350px; height:100%; text-align:center; float:left;}
+		.team .vs{width:200px; font-size:35px; line-height:308px; color:#fff;}
+		.team .clubt{font-size:30px; letter-spacing:2px; color:#fff; font-weight:800;}
+		
+
+
+
+  </style>
+  <script>
+  </script>
+ </head>
+
+ <body>
+		<div id="wrap">
+			<div id="container">
+				<div id="section2">
+					<div id="subvisual">
+						<p class="opabackground">
+						</p>
+					</div>
+					<div id="info">
+						<div class="cen">
+							<p class="schedule">
+								<span>Monday 20 July 2020</span><br/>
+								<span>Kick Off 02:00</span>
+							</p>
+							<div class="lefttime">
+								<p class="tagh">
+									<img src="img/tagheuer.png" alt="tagheuer"/>
+								</p>
+								<p class="time">
+									
+								</p>
+							</div>
+						</div>
+						<ul class="team">
+							<li>
+								<img src="img/manu.png" alt="logo"/><br/>
+								<span class="clubt">MAN UTD</span>
+							</li>
+							<li class="vs">
+								<span></span>
+							</li>
+							<li>
+								<img src="img/chelsea.png" alt="logo"/><br/>
+								<span class="clubt">CHELSEA</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+ </body>
+</html>

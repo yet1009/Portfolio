@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <title>shop</title>
+  <meta charset="utf-8"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;}
+		body{margin:0; padding:0;}
+		li{list-style:none;}
+		a:link,a:visited{text-decoration:none; color:#333;}
+		a:hover,a:focus{text-decoration:underline;}
+		img{border:none;}
+
+		section,article{display:block;}
+
+		#wrap{min-width:1025px; max-width:1920px; width:100%; margin:0 auto;}
+
+		#headerWrap{width:100%; height:100px;  background-color:#c70101;}
+		
+		/*############ 실제 사용하는 header 영역 ################*/
+			#header{width:1600px; height:100px; margin:0 auto;  position:relative;}
+		
+		/*### logo ###*/
+			#logo{width:80px; height:80px; position:absolute; left:50%; top:0; padding:10px 0;}
+			#logo a{display:block; width:100%; height:100%;}
+			#logo img{width:100%;}
+		
+		/*######## gnb(gnb 전체 사용영역) #######*/
+			#gnb{width:800px; height:100%;}
+
+			.hamburger{width:100px; height:100%; float:left;}
+			.hamburger p{width:70px; height:70px; margin:15px auto; }
+			.hamburger p img{width:100%;}
+
+			.nav{width:700px; height:100%; line-height:100px;  float:left;}
+			.nav li{display:inline; padding:0 40px;}
+			.nav li a span{font-weight:bold; color:#fff; font-size:16px;}
+			
+			.iconbox{width:260px; height:100%; background-color:#c70101; position:absolute; left:1140px; top:0;}	
+			.iconbox p{width:50%; height:100%; float:left;}
+			.iconbox p a{display:block; width:100%; height:100%;  text-align:center; line-height:100px; color:#fff;}
+			.iconbox p img{width:25%; vertical-align:middle;}
+
+			.searchBox{width:100%; height:70px; background-color:rgba(255,255,255,1); position:absolute;  /*top:0px; z-index:9;*/ border-radius:0 0 10px 10px; /*display:none;*/}
+			.searchBox p{width:1100px; height:100%; text-align:right; position:relative; left:400px; top:0;}
+			.searchBox label{font-size:30px; line-height:65px; background-image:-webkit-linear-gradient(right, #cc0, #e00);  -webkit-background-clip:text; color:transparent;}
+			.searchBox input[type="text"]{width:600px; height:40px; border:none; border-bottom:3px solid #ccc; background-color:rgba(255,255,255,0,4);vertical-align:middle; text-indent:10px; font-size:17px; outline:none;}
+			.searchBox input[type="button"]{width:100px; height:40px; border:none; border-radius:10px;  background-color:#ccc;}
+			.searchBox input[type="button"]:hover{background-image:linear-gradient(top, #c70101, gold); 
+					background-image:-webkit-linear-gradient(top,#c70101, gold);}
+			.searchBox img{width:30px;}
+			
+			.spons_logo{width:200px; height:100%;  background-color:#000; /*background-color:#c70101;*/ position:absolute; right:0; top:0;}
+			.spons_logo p{width:50%; height:50px; text-align:center; line-height:60px; float:left;}
+			.spons_logo p img{height:50%; cursor:pointer;}
+				
+			.spons_logo p:first-child{line-height:65px;}
+			.spons_logo p:first-child img{height:65%;}
+		
+		/*################## depthWrap #####################*/
+
+			#depthWrap{width:100%; height:400px; position:absolute; background-image:linear-gradient(top,rgb(154 149 149 / 62%), rgb(35 32 30 / 57%)); 
+					background-image:-webkit-linear-gradient(top,rgb(154 149 149 / 62%), rgb(35 32 30 / 57%)); left:0; top:100px; z-index:10; display:none;}
+			#contentWrap{width:1600px; height:100%; /*background-color:gold;*/ margin:0 auto; position:relative; }
+			#allcont{width:1500px; padding-left:100px; }
+		
+		
+			.contList{width:100%; height:400px;  background-image:url("img/contbg1.jpeg"); background-position:right; background-size:50%; background-repeat:no-repeat;} 
+			.contList li{width:140px; height:60px; text-align:center; line-height:60px; float:left;}
+			.contList li ul li a{color:#fff; font-size:16px; font-weight:500;}
+ 
+			/*.contList{ background-image:url("img/contbg.jpg"); background-position:center; background-size:100%;}*/
+			.contList li ul:hover li{/*background-color:rgba(0,0,0,0.7);*/ background-color:rgba(199,1,1,0.5);}
+			
+			.contList a:hover,.contList a:focus{/*background-image:-webkit-linear-gradient(right, #cc0, #e00);  -webkit-background-clip:text; color:transparent;*/ color:#000;}
+
+		
+		
+		/*########################### container ##########################*/
+
+		#container{width:100%;}
+	
+		/*#################### online ###################*/
+		#online{width:1440px; margin:0 auto;}
+		#online h2{width:100%; padding:50px 0; font-size:30px;}
+
+		/*################### shop ######################*/
+		#shop{width:100%; border-top:1px solid #ccc; overflow:hidden;}
+		
+		#selection{width:240px; height:1100px; overflow:hidden; float:left;}
+		#selection ul li:last-child{border-bottom:1px solid #ccc;}
+		#selection h3{width:220px; height:40px; line-height:40px;  text-align:center; cursor:pointer; margin:0 10px;}
+		
+		#shopfor{width:100%; height:200px;}
+		#shopfor ul{width:210px; height:140px; padding:10px 15px;}
+		#shopfor ul li{width:98%; height:25%; padding-left:2%; line-height:35px;}
+
+		#kittype{width:100%; height:180px;}
+		#kittype ul{width:210px; height:120px; padding:10px 15px;}
+		#kittype ul li{width:98%; height:40px; padding-left:2%; line-height:40px;}
+		
+		#size{width:100%; height:340px;}
+		#size ul{width:220px; height:280px; padding:10px;}
+		#size ul li{width:55px; height:40px; text-align:center; line-height:40px; float:left;}
+		#size ul li:last-child{border:none;}
+
+		#selection li:hover{background-color:#c70101; color:#fff; cursor:pointer;}
+	/*######################################################*/
+		#goods{width:1200px; overflow:hidden; /*background-color:pink;*/ border-left:1px solid #ccc; box-sizing:border-box;float:left;}
+		#page{width:100%; height:99px; border-bottom:1px solid #ccc;  display:flex; justify-content:center; align-items:center;}
+		
+		#btn1,#btn2{display:block; width:100px; height:30px; font-size:20px; line-height:20px; border:1px solid #ccc; color:#666;}
+		
+		#productList{width:100%; overflow:hidden;}
+		#productList li{width:382px; height:378px; overflow:hidden; margin:10px 5px; border:1px solid #ccc;float:left; position:relative;}
+		#productList li img{width:100%;}
+
+		#productList2{width:100%;}
+		#productList2 li{width:560px; height:380px; margin:18px; float:left;}
+		#productList2 li .bigG{width:280px; height:280px; float:left;}
+		#productList2 li .smallG{width:280px; height:280px; float:left;}
+		#productList2 li p img{width:100%;}
+		#productList2 li .gDetails{width:100%; height:100px; clear:both;}
+		#productList2 .gDetails strong{display:block; width:100%; height:40px; text-align:center;line-height:40px;}
+		#productList2 .gDetails p{width:70%; height:60px;float:left;}
+
+		#productList2 .gDetails p a{display:block; width:50%; height:50%; text-align:center; line-height:30px; box-sizing:border-box;transform:translatey(50%); float:left;}
+		#productList2 .gDetails p a em{font-style:normal; display:block;}
+		#productList2 .gDetails p .textColor em{color:#000;}
+		#productList2 .gDetails p .textColor:hover em{color:red;}
+		#productList2 .gDetails p .hoverColor em{color:#fff;}
+		#productList2 .gDetails p .hoverColor:hover em{color:#000;}
+		#productList2 .gDetails span{display:block; width:27%; height:60px; text-align:right; line-height:60px; font-size:22px; padding-right:3%; float:left;}
+
+		.hoverColor{background-color:red;}
+		.hoverColor:hover{background-color:rgba(255,0,0,0.7); text-decoration:none;}
+		.textColor:hover{text-decoration:none;}
+
+		
+		.seemore{width:50px; height:50px; display:block; margin:0 auto; background-color:#333; text-align:center;  cursor:pointer;}
+		.seemore img{width:100%;}
+		#productList2:after{content:""; display:block; clear:both;}
+		
+
+		
+		.descbox{width:0px; height:0px; font-size:0; line-height:0; /*background-color:rgba(199,1,1,0.5);*/ background-color:rgba(0,0,0,0.6); color:#fff; text-align:center; text-transform:uppercase; position:absolute;	transition:all 0.5s ease;}
+		.descbox p{width:0px; height:0; margin:0 auto; position:relative;}
+		.descbox span{display:block; width:0px; height:0px; text-align:center; line-height:0; font-size:0; cursor:pointer;}
+
+		.ani{animation:myani 5s infinite alternate;}
+		@keyframes myani{
+			0%{display:none;}
+			100%{display:block;}
+		}
+
+
+	/*################## footer ###################################*/
+			#footerWrap{width:100%;}
+			#footer{width:100%; margin-top:50px;}
+			#sponsor{width:100%; overflow:hidden;}
+			#sponsor ul{width:3000px; height:110px;  padding-top:20px; background-color:#eee; /*margin:30px auto 0;*/ border-top:1px solid #efefef;}
+			#sponsor li{width:100px; height:100%; margin-right:30px; line-height:130px; float:left;}
+			#sponsor li a img{width:100%;}
+			
+			#footer .footertxt{width:100%; height:50px; background-color:#333;}
+			#footer .footertxt ul{width:1440px; height:100%; line-height:50px; margin:0 auto;}
+			#footer .footertxt ul li{display:inline; padding:0 15px;}
+			.footertxt ul li a{color:#efefef;}
+
+			.linkc{width:100%;background-color:rgba(0,0,0, 0.6);}
+			.linkc ul{width:190px; height:60px; padding-top:20px; margin:0 auto; }
+			.linkc li{width:40px; height:40px; color:#333; border-radius:20px; margin-right:5px;background-color:#aaa; float:left;}
+			.linkc li a{display:block; width:100%;}
+			/*.linkc li img{width:80%; margin-top:3px; margin-left:3px;}
+			.linkc li:hover{background-color:red;}
+			.linkc .sns2 img{width:80%; margin-top:3px; margin-left:4px;}
+			.linkc .sns3 img{width:80%; margin-top:4px; margin-left:4px;}*/
+
+			.linkc .signup{width:90px; height:40px; text-align:center; line-height:40px; background-color:#c70101;}
+			.linkc .signup:hover{background-color:rgba(199,1,1,0.8);}
+			.linkc .signup:hover a{text-decoration:none;}
+			.linkc .signup span{color:#fff;}
+			
+			.linkc .login:last-child{margin-right:0;}
+			.linkc .login{width:90px; height:40px; text-align:center; line-height:40px;}
+			.linkc .login:hover a{color:#fff; text-decoration:none;}
+
+			.copyright{width:100%; background-color:#000;}
+			.copyright p{width:100%; height:30px;  text-align:center; line-height:30px;margin:0 auto;color:#aaa; font-size:14px;}
+		
+  </style>
+  <script>
+		$(function(){
+
+			var num = 0;
+			var num1 = 0;
+
+			$(".searchBox").hide();
+			$(".hamburger").click(function(){
+
+				if(num ==0){
+					$(this).css({"backgroundColor":"#000"});
+					$("#depthWrap").css({"display":"block"});
+
+					num = 1;
+				}else{
+					$(this).css({"backgroundColor":"#c70101"});
+					$("#depthWrap").css({"display":"none"});
+
+					num = 0;
+				}
+			});
+
+			$(".iconbox p a").attr("title","search").click(function(){
+				
+				if(num1==0){
+					$(".searchBox").css({"display":"block","top":"100px","zIndex":"9"});
+					num1= 1;
+				}else{
+					$(".searchBox").css({"display":"none","top":"0px","zIndex":"0"});
+					num1 = 0;
+				}
+					
+			});
+
+
+			$("#shopfor h3").click(function(){
+			
+				$("#shopfor ul li").slideToggle(500,"linear");
+	
+			});
+
+			$("#kittype h3").click(function(){
+				
+				//$(this).css({"borderBottom":"1px solid #ccc"});
+				$("#kittype ul li").slideToggle(500,"linear");
+	
+			});
+
+			$("#size h3").click(function(){
+				
+				//$(this).css({"borderBottom":"1px solid #ccc"});
+				$("#size ul li").slideToggle(500,"linear");
+	
+			});
+			
+				$("#productList .nosee").hide();
+				
+				$("#productList li").mouseover(function(){
+					$(this).children(".nosee").hide();
+					$(".descbox").css({
+						"left":$(this).offset().left,
+						"top":$(this).offset().top,
+						"width":"382px",
+						"height":"378px",
+						"fontSize":"16px",
+					});
+					$(".descbox p").css({
+						"width":"150px",
+						"height":"120px",
+						"top":"130px"
+					});
+					$(".descbox span").css({
+						"width":"150px",
+						"height":"50px",
+						"borderRadius":"10px",
+						"fontSize":"16px",
+						"display":"block",
+						"backgroundColor":"red",
+						"lineHeight":"50px"
+					});
+
+					$(".descbox .exp").css({
+						"marginBottom":"20px"
+					});
+				});
+			
+			$("#productList2").hide();
+			$("#btn1").click(function(){
+				$(".descbox").show();
+				$("#productList").show();
+				$("#productList2").hide();
+				$(".seemore").css({"display":"none"});
+			});
+			
+			$(".seemore").css({"display":"none"});
+			$("#productList2 li:gt(11)").slideUp();
+			
+			$(".seemore").click(function(){
+				$("#productList2 li:gt(11)").slideToggle();
+			})
+
+
+			$("#btn2").click(function(){
+				$("#productList").hide();
+				$("#productList2").show();
+				$(".seemore").css({"display":"block"});
+				$(".descbox").hide();
+			});
+
+		});
+  </script>
+ </head>
+
+ <body>
+		<div id="wrap">
+			<div id="headerWrap">
+				<div id="header">
+					<h1 id="logo">	
+						<a href="http://yet1009.dothome.co.kr/manu/index.html" title="참고페이지">
+							<img src="img/manulogo.png" alt="logo"/>
+						</a>
+					</h1>
+					<div id="gnb">
+						<div class="hamburger">
+							<p>
+								<img src="img/burgerm.png" alt="menu"/>
+							</p>
+						</div>
+						<ul class="nav">
+							<li>
+								<a href="http://yet1009.dothome.co.kr/manu/news.html"  title="news">
+									<span>NEWS</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://yet1009.dothome.co.kr/manu/players.html" title="players">
+									<span>PLAYERS</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://yet1009.dothome.co.kr/manu/shop.html"title="trophy">
+									<span>SHOP</span> 
+								</a>
+							</li>
+							<li>
+								<a href="http://yet1009.dothome.co.kr/manu/legend.html" title="tickets">
+									<span>LEGENDS</span>
+								</a>
+							</li>
+						</ul>
+					</div>	
+					<div class="iconbox">
+						<p>
+							<a href="#none" title="search">
+								<img src="img/find.png" alt="search"/><span class="text0">Search</span>
+							</a>
+						</p>
+						<p>
+							<a href="http://yet1009.dothome.co.kr/manu/login.html" title="login">
+								<img src="img/logicon.png" alt="login"/><span class="text0">Login</span>
+							</a>
+						</p>
+					</div>
+					<div class="searchBox">
+						<p>
+							<label for="sBox">What are you looking for? </label><input id="sBox" type="text" name="sBox"/> <input type="button" value="SEARCH" title="search"/>
+						</p>
+					</div>
+					<div>
+					<div class="spons_logo">
+						<p class="slogo0">
+							<img src="img/adidas.png" alt="sponsorlogo0"/>
+						</p>
+						<p class="slogo0">
+							<img src="img/chevrolet.png" alt="sponsorlogo1"/>
+						</p>
+						<p class="slogo1">
+							<img src="img/aon.png" alt="sponsorlogo2"/>
+						</p>
+						<p class="slogo1">
+							<img src="img/Kohler.png" alt="sponsorlogo3"/>
+						</p>
+					</div>
+				</div>
+				<div id="depthWrap">
+					<div id="contentWrap">
+						<div id="allcont">
+							<ul class="contList">
+								<li>
+									<ul>
+										<li><a href="#none" title="latest">Latest</a></li>
+										<li><a href="#none" title="First Team">First Team</a></li>
+										<li><a href="#none" title="Club">Club</a></li>
+										<li><a href="#none" title="Breaking News">Breaking News</a></li>
+									</ul>
+								</li>
+								<li>
+									<ul>
+										<li><a href="#none" title="first team">First Team</a></li>
+										<li><a href="#none" title="first team manager">Manager</a></li>
+										<li><a href="#none" title="under_23s">Under-23s</a></li>
+										<li><a href="#none" title="women">Women</a></li>
+									</ul>
+								</li>
+								<li>
+									<ul>
+										<li><a href="#none" title="kits">Kits</a></li>
+										<li><a href="#none" title="training">Training</a></li>
+										<li><a href="#none" title="mens">Mens</a></li>
+										<li><a href="#none" title="womens">Womens</a></li>
+										<li><a href="#none" title="kids">Kids</a></li>
+									</ul>
+								</li>
+								<li>
+									<ul>
+										<li><a href="#none" title="legends">Legends</a></li>
+										<li><a href="#none" title="trophy room">Trophy Room</a></li>
+										<li><a href="#none" title="history by decade">History by Decade</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="cotainer">
+				<section id="online">
+					<h2>Online Store</h2>
+					<div id="shop">
+						<aside id="selection">
+							<div id="shopfor">
+								<h3>Shop for</h3>
+								<ul>
+									<li>
+										<input id="men" type="radio" name="cate"/> <label for="men">Men</label>
+									</li>
+									<li>
+										<input id="women" type="radio" name="cate"/> <label for="women">Women</label>
+									</li>
+									<li>
+										<input id="kids" type="radio" name="cate"/> <label for="kids">Kids</label>
+									</li>
+									<li>
+										<input id="baby" type="radio" name="cate"/> <label for="baby">Baby</label>
+									</li>
+								</ul>
+							</div>
+							<div id="kittype">
+								<h3>Kit type</h3>
+								<ul>
+									<li>
+										<input id="home" type="radio" name="kit"/> <label for="home">Home</label>
+									</li>
+									<li>
+										<input id="away" type="radio" name="kit"/> <label for="away">Away</label>
+									</li>
+									<li>
+										<input id="gk" type="radio" name="kit"/> <label for="gk">Goalkeeper</label>
+									</li>
+								</ul>
+							</div>
+							<div id="size">
+								<h3>Size</h3>
+								<ul>
+									<li>XS</li>
+									<li>S</li>
+									<li>M</li>
+									<li>L</li>
+									<li>XL</li>
+									<li>2XL</li>
+									<li>26</li>
+									<li>28</li>
+									<li>30</li>
+									<li>32</li>
+									<li>34</li>
+									<li>36</li>
+								</ul>
+							</div>
+						</aside>
+						<div id="goods">
+							<div id="page">
+								<input id="btn1" type="button" value="+" title="wide"/>
+								<input id="btn2" type="button" value="-" title="wide"/>
+							</div>
+							<ul id="productList">
+								<li>
+									<p class="see"><img src="img/g0.jpg" alt="uniform0"/></p>
+									<p class="nosee"><img src="img/gb0.jpg" alt="uniform0"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g1.jpg" alt="uniform1"/></p>
+									<p class="nosee"><img src="img/gb1.jpg" alt="uniform1"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g2.jpg" alt="uniform2"/></p>
+									<p class="nosee"><img src="img/gb2.jpg" alt="uniform2"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g3.jpg" alt="uniform3"/></p>
+									<p class="nosee"><img src="img/gb3.jpg" alt="uniform3"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g4.jpg" alt="uniform4"/></p>
+									<p class="nosee"><img src="img/gb4.jpg" alt="uniform4"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g5.jpg" alt="uniform5"/></p>
+									<p class="nosee"><img src="img/gb5.jpg" alt="uniform5"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g6.jpg" alt="uniform6"/></p>
+									<p class="nosee"><img src="img/gb6.jpg" alt="uniform6"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g7.jpg" alt="uniform7"/></p>
+									<p class="nosee"><img src="img/gb7.jpg" alt="uniform7"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g8.jpg" alt="uniform8"/></p>
+									<p class="nosee"><img src="img/gb8.jpg" alt="uniform8"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g9.jpg" alt="uniform9"/></p>
+									<p class="nosee"><img src="img/gb9.jpg" alt="uniform9"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g10.jpg" alt="uniform10"/></p>
+									<p class="nosee"><img src="img/gb10.jpg" alt="uniform10"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g11.jpg" alt="uniform11"/></p>
+									<p class="nosee"><img src="img/gb11.jpg" alt="uniform11"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g12.jpg" alt="uniform12"/></p>
+									<p class="nosee"><img src="img/gb12.jpg" alt="uniform12"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g13.jpg" alt="uniform13"/></p>
+									<p class="nosee"><img src="img/gb13.jpg" alt="uniform13"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g14.jpg" alt="uniform14"/></p>
+									<p class="nosee"><img src="img/gb14.jpg" alt="uniform14"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g15.jpg" alt="uniform15"/></p>
+									<p class="nosee"><img src="img/gb15.jpg" alt="uniform15"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g16.jpg" alt="uniform16"/></p>
+									<p class="nosee"><img src="img/gb16.jpg" alt="uniform16"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g17.jpg" alt="uniform17"/></p>
+									<p class="nosee"><img src="img/gb17.jpg" alt="uniform17"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g18.jpg" alt="uniform18"/></p>
+									<p class="nosee"><img src="img/gb18.jpg" alt="uniform18"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g19.jpg" alt="uniform19"/></p>
+									<p class="nosee"><img src="img/gb19.jpg" alt="uniform19"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g20.jpg" alt="uniform20"/></p>
+									<p class="nosee"><img src="img/gb20.jpg" alt="uniform20"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g21.jpg" alt="uniform21"/></p>
+									<p class="nosee"><img src="img/gb21.jpg" alt="uniform21"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g22.jpg" alt="uniform22"/></p>
+									<p class="nosee"><img src="img/gb22.jpg" alt="uniform22"/></p>
+								</li>
+								<li>
+									<p class="see"><img src="img/g23.jpg" alt="uniform23"/></p>
+									<p class="nosee"><img src="img/gb23.jpg" alt="uniform23"/></p>
+								</li>
+							</ul>
+							<ul id="productList2">
+								<li>
+									<p class="bigG"><img src="img/g0.jpg" alt="uniform0"/></p>
+									<p class="smallG"><img src="img/gb0.jpg" alt="uniform0"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Home Shirt 2020-21 with B.Fernandes 18 printing</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$100.00
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g1.jpg" alt="uniform1"/></p>
+									<p class="smallG"><img src="img/gb1.jpg" alt="uniform1"/></p>
+									<div class="gDetails">
+										<strong>Manchester United 3 Stripe Full Zip Hoodie - Black</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$93.20
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g2.jpg" alt="uniform2"/></p>
+									<p class="smallG"><img src="img/gb2.jpg" alt="uniform2"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Travel T-Shirt - Maroon</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$78.20
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g3.jpg" alt="uniform3"/></p>
+									<p class="smallG"><img src="img/gb3.jpg" alt="uniform3"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Travel Sweater - Maroon</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$83.10
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g4.jpg" alt="uniform4"/></p>
+									<p class="smallG"><img src="img/gb4.jpg" alt="uniform4"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Home Shorts 2020-21 - Kids</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$41.60
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g5.jpg" alt="uniform5"/></p>
+									<p class="smallG"><img src="img/gb5.jpg" alt="uniform5"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Home Shirt 2020-21 with Rashford 10 printing</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$134.30
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g6.jpg" alt="uniform6"/></p>
+									<p class="smallG"><img src="img/gb6.jpg" alt="uniform6"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Training Polo - Green</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$65.30
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g7.jpg" alt="uniform7"/></p>
+									<p class="smallG"><img src="img/gb7.jpg" alt="uniform7"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Training Polo - White</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$59.40
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g8.jpg" alt="uniform8"/></p>
+									<p class="smallG"><img src="img/gb8.jpg" alt="uniform8"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Training Top - White</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$106.90
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g9.jpg" alt="uniform9"/></p>
+									<p class="smallG"><img src="img/gb9.jpg" alt="uniform9"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Training Sleeveless Jersey - Green</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$53.50
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g10.jpg" alt="uniform10"/></p>
+									<p class="smallG"><img src="img/gb10.jpg" alt="uniform10"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Training Shorts - Green</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$53.50
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g11.jpg" alt="uniform11"/></p>
+									<p class="smallG"><img src="img/gb11.jpg" alt="uniform11"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Home Shirt 2020-21 - Kids with Pogba 6 printing</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$110.40
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g12.jpg" alt="uniform12"/></p>
+									<p class="smallG"><img src="img/gb12.jpg" alt="uniform12"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Third Shirt 2018-19</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$45.20
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g13.jpg" alt="uniform13"/></p>
+									<p class="smallG"><img src="img/gb13.jpg" alt="uniform13"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Pre Match Shirt - Red</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$71.30
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g14.jpg" alt="uniform14"/></p>
+									<p class="smallG"><img src="img/gb14.jpg" alt="uniform14"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Pre Match Shirt - Red</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$71.30
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g15.jpg" alt="uniform15"/></p>
+									<p class="smallG"><img src="img/gb15.jpg" alt="uniform15"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Home Goalkeeper Shirt 2020-21</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$71.30
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g16.jpg" alt="uniform16"/></p>
+									<p class="smallG"><img src="img/gb16.jpg" alt="uniform16"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Home Goalkeeper Shirt 2020-21</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$130.60
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g17.jpg" alt="uniform17"/></p>
+									<p class="smallG"><img src="img/gb17.jpg" alt="uniform17"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Travel Pants - Maroon</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$83.10
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g18.jpg" alt="uniform18"/></p>
+									<p class="smallG"><img src="img/gb18.jpg" alt="uniform18"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Training Shorts - Green - Womens</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$54.40
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g19.jpg" alt="uniform19"/></p>
+									<p class="smallG"><img src="img/gb19.jpg" alt="uniform19"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Home Mini Kit 2020-21 with Rashford 10 printing</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$93.60
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g20.jpg" alt="uniform20"/></p>
+									<p class="smallG"><img src="img/gb20.jpg" alt="uniform20"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Training T-Shirt - White</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$53.50
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g21.jpg" alt="uniform21"/></p>
+									<p class="smallG"><img src="img/gb21.jpg" alt="uniform21"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Home Shirt 2019 - 20 - Kids</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$74.80
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g22.jpg" alt="uniform22"/></p>
+									<p class="smallG"><img src="img/gb22.jpg" alt="uniform22"/></p>
+									<div class="gDetails">
+										<strong>Manchester United 3 Stripe Track Top - Black</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$83.10
+										</span>
+									</div>
+								</li>
+								<li>
+									<p class="bigG"><img src="img/g23.jpg" alt="uniform23"/></p>
+									<p class="smallG"><img src="img/gb23.jpg" alt="uniform23"/></p>
+									<div class="gDetails">
+										<strong>Manchester United Away Shirt 2019 - 20- short sleeve</strong>
+										<p>
+											<a class="hoverColor" href="#none" title="buynow">
+												<em>buy now</em>
+											</a>
+											<a class="textColor" style="border:2px solid red" href="#none" title="details">
+												<em>Details</em>
+											</a>
+										</p>
+										<span>
+											$110.40
+										</span>
+									</div>
+								</li>
+							</ul>
+							<span class="seemore">
+								<img src="img/more.png" alt="more"/>
+							</span>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div id="footerWrap">
+				<div id="footer">
+					<div id="sponsor">
+						<ul>
+							<li class="sp1">
+								<a href="#none" title="스폰서1">
+									<img src="img/p1.png" alt="스폰서1"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서2">
+									<img src="img/p2.png" alt="스폰서2"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서3">
+									<img src="img/p3.png" alt="스폰서3"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서4">
+									<img src="img/p4.png" alt="스폰서4"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서5">
+									<img src="img/p5.png" alt="스폰서5"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서6">
+									<img src="img/p6.png" alt="스폰서6"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서7">
+									<img src="img/p7.png" alt="스폰서7"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서8">
+									<img src="img/p8.png" alt="스폰서8"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서9">
+									<img src="img/p9.png" alt="스폰서9"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서10">
+									<img src="img/p10.png" alt="스폰서10"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서11">
+									<img src="img/p11.png" alt="스폰서11"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서12">
+									<img src="img/p12.png" alt="스폰서12"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서13">
+									<img src="img/p13.png" alt="스폰서13"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서14">
+									<img src="img/p14.png" alt="스폰서14"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서15">
+									<img src="img/p15.png" alt="스폰서15"/>
+								</a>
+							</li>
+							<li>
+								<a href="#none" title="스폰서16">
+									<img src="img/p16.png" alt="스폰서16"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footertxt">
+						<ul>
+							<li>
+								<a href="https://www.manutd.com/official-app?t=y&int_source=muwebsite&int_medium=referral&int_campaign=muwebsite&int_content=180910MUOfficialAppFooterCTA" title="Download the Official App">
+									Download the Official App
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/Help/Accessibility" title="Accessibility">
+									Accessibility
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/help/club-contacts?int_source=manutd.com&int_medium=menu&int_campaign=generic&int_content=more_help_contactus" title="contact us">
+									Contact us
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/Club/Jobs"title="jobncareer">
+									Jobs &amp; Career
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/Help/Privacy-Policy"title="privacy">
+									Privacy
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/help/cookie-policy"title="cookies">
+									Cookies
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/help/website-terms-of-use"title="termsofuse">
+									Terms of Use
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/help/terms-and-conditions-of-sale"title="Terms & Conditions of Sale">
+									Terms & Conditions of Sale
+								</a>
+							</li>
+							<li>
+								<a href="https://www.manutd.com/en/help/anti-slavery-statement"title="Anti-slavery">
+									Anti-slavery
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="linkc">
+						<ul>
+							<li class="signup">
+								<a href="#none" title="signin">
+									<span>SIGN IN</span>
+								</a>
+							</li>
+							<li class="login">
+								<a href="#none" title="signin">
+									<span>LOG IN</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="copyright">
+						<p>
+							©2020 YEONTAE YOO (yet1009@hanmail.net) Ltd
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<p class="topbutton">
+		</p>
+		<div class="descbox">
+			<p>
+				<span class="exp"><a href="http://yet1009.dothome.co.kr/manu/product.html" title="상품페이지">Expand</a></span>
+				<span class="getN">Get it Now</span>
+			</p>
+		</div>
+ </body>
+</html>
